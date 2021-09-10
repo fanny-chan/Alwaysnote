@@ -44,9 +44,11 @@ export const signup = (user) => async (dispatch) => {
         password,
       }),
     });
-    const data = await response.json();
-    dispatch(setUser(data.user));
-    return response;
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(setUser(data.user));
+        return response;
+    }
   };
 // restore user thunk action
   export const restoreUser = () => async dispatch => {
@@ -55,7 +57,7 @@ export const signup = (user) => async (dispatch) => {
     dispatch(setUser(data.user));
     return response;
   };
-  
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
