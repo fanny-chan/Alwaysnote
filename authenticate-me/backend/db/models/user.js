@@ -87,6 +87,8 @@ User.getCurrentUserById = async function (id) {
 
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.Notebooks, { foreignKey: 'userId' });
+    User.hasMany(models.Notes, { foreignKey: 'userId' });
   };
   return User;
 };
