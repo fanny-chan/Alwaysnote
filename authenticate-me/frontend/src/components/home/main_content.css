@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+.pic {
+    height: auto;
+    max-width: 95%;
+    display: flex;
+    justify-self: left;
+}
+
+.img-container {
+    height: auto;
+    width: 83%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.main-side-bar {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.word-container > p {
+    font-size: 16px;
+      
+        
+}
+
+.main-script {
+    text-align: center;
+}
+
+h1 {
+    font-size: 56px;
+}
+h5 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%
+}
