@@ -1,0 +1,8 @@
+Users:
+npx sequelize model:generate --name User --attributes username:string,email:string,hashedPassword:string
+
+notebook:
+npx sequelize model:generate --name Notebook --attributes userId:integer,title:string
+
+notes:
+npx sequelize model:generate --name Notes --attributes userId:integer,notebookId:integer,title:string,content:text
