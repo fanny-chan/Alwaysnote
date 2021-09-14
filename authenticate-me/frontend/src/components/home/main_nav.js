@@ -35,17 +35,11 @@ function MainNav({ isLoaded }){
   }
 
   return (
-<<<<<<< Updated upstream
-      <>
-      <div className="full-page">
-      {isLoaded && sessionLinks}
-=======
     
       <div>
         {isLoaded && sessionLinks}
->>>>>>> Stashed changes
       </div>
-      </>
+      
     
   );
 }

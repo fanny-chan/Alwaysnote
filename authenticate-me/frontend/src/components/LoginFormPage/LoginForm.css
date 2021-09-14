@@ -1,11 +1,11 @@
-<<<<<<< Updated upstream
 #root {
     background-color: transparent;
-=======
-/* #root {
->>>>>>> Stashed changes
-    position: relative;
 }
+
+ /* #root {
+    position: relative;
+} */
+
 #container {
     width: auto;
     position: relative;
@@ -86,4 +86,4 @@
 }
 #demo-user {
     width: 100%;
-} */
+}
