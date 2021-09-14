@@ -18,6 +18,13 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+<<<<<<< Updated upstream
+=======
+          <Route exact path="/" >
+          <Navigation isLoaded={isLoaded} />
+          <MainContent />
+          </Route>
+>>>>>>> Stashed changes
           <Route path="/login">
             <LoginFormPage />
           </Route>
