@@ -19,7 +19,7 @@ module.exports = {
         references:{model: "Notebooks"}
       },
       title: {
-        allowNull: false,
+        allowNull: false,Id,
         type: Sequelize.STRING
       },
       content: {
@@ -28,7 +28,7 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,

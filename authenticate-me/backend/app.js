@@ -6,6 +6,9 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const routes = require('./routes');
 const { ValidationError } = require('sequelize');
+const notebook_router = require('./routes/api/notebook')
+const note_router = require('./routes/api/note')
+
 
 
 const { environment } = require('./config');
