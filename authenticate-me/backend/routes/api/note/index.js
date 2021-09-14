@@ -1,24 +1,24 @@
 const express = require('express')
 const { Note } = require('../../../db/models')
 const asyncHandler = require('express-async-handler');
-
+const {requireAuth} = require('../../../utils/auth')
 const note_router = express.Router();
 
-// Get a note
-note_router.get('/', asyncHandler(async(req,res) => {
+// Get all notes
+note_router.get('/',requireAuth,asyncHandler(async(req,res) => {
     const note = await Note.findAll();
     res.json(note);
 }))
 
 // Get specific note
-note_router.get('/:id(\\d+)/', asyncHandler(async(req,res) => {
+note_router.get('/:id(\\d+)/',requireAuth, asyncHandler(async(req,res) => {
     const id = parseInt(req.params.id,10);
     const note = await Note.findByPk(id);
     res.json(note);
 }));
 
-// create a notebook
-note_router.post('/', asyncHandler(async(req,res) => {
+// create a note
+note_router.post('/',requireAuth, asyncHandler(async(req,res) => {
     const {userId, notebookId, title, content} = req.body;
     const newNote = await Note.create({
         userId: userId,
@@ -30,7 +30,7 @@ note_router.post('/', asyncHandler(async(req,res) => {
 }));
 
 // Edit a note
-note_router.patch('/:noteId', asyncHandler(async(req,res)=> {
+note_router.patch('/:id', requireAuth,asyncHandler(async(req,res)=> {
     const noteId = req.params.id;
     const {title, content} = req.body;
     const note = await Note.findByPk(noteId);
@@ -42,7 +42,7 @@ note_router.patch('/:noteId', asyncHandler(async(req,res)=> {
 }));
 
 // delete a note
-note_router.delete("/:id", asyncHandler(async(req,res)=> {
+note_router.delete("/:id",requireAuth, asyncHandler(async(req,res)=> {
     const noteId = req.params.id;
     const note = await Note.findByPk(noteId);
     note.destroy();

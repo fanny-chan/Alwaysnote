@@ -29,13 +29,14 @@ function MainNav({ isLoaded }){
                 </div>
             </div>
         </div>
+      
       </>
     );
   }
 
   return (
     
-      <div>
+      <div className="full-page">
         {isLoaded && sessionLinks}
       </div>
     

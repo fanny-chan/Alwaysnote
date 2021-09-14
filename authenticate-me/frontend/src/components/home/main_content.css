@@ -1,16 +1,22 @@
 * {
     box-sizing: border-box;
-<<<<<<< HEAD
+
     font-family: 'Urbanist',sans-serif;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        color: inherit;
+        text-align: inherit;
+        text-decoration: inherit;
+        vertical-align: inherit;
+        background: transparent;
 }
 
 .root{
     position: relative;
 }
 
-=======
-}
->>>>>>> splash_component
 .pic {
     height: auto;
     max-width: 95%;
@@ -31,36 +37,47 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    
 }
 
 h4 {
     font-size: 18px;
     margin-bottom: 2px;
+    padding-bottom: 10px;
 }
-
+.word-container {
+    margin-top: 15%;
+}
 .word-container > p {
-    font-size: 16px;
-      
+    font-size: 18px;
+    letter-spacing: .5px;
+    line-height: 150%;
         
 }
 
 .main-script {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+
 }
 
 h1 {
     font-size: 56px;
-<<<<<<< HEAD
     font-weight: bold;
-=======
->>>>>>> splash_component
 }
 h5 {
-    font-size: 24px;
     font-weight: 400;
-    line-height: 150%
+    line-height: 150%;
+    font-size: 30px;
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
-<<<<<<< HEAD
 
 .button {
     background: #00a82d;
@@ -80,10 +97,9 @@ h5 {
     text-decoration: underline;
     color: #000;
     transition: .1s color ease-in-out;
+    font-size: 18px;
 }
 
 .sign-up-button-div {
     padding-bottom: 20px;
 }
-=======
->>>>>>> splash_component
