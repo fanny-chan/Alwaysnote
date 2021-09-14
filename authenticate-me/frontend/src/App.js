@@ -18,20 +18,10 @@ function App() {
     <>
       {isLoaded && (
         <Switch>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
           <Route exact path="/" >
           <Navigation isLoaded={isLoaded} />
           <MainContent />
           </Route>
->>>>>>> Stashed changes
-=======
-          <Route path="/" exact>
-          <Navigation isLoaded={isLoaded} />
-          <MainContent />
-          </Route>
->>>>>>> splash_component
           <Route path="/login">
             <LoginFormPage />
           </Route>
