@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
 
+
 function LoginFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -30,6 +31,7 @@ function LoginFormPage() {
     <div className="form-container">
       <div className="login-form">
         <form onSubmit={handleSubmit}>
+          <img className="elephant-login" src='../../../public/images/evernote-icon-logo-png-transparent.png'></img>
           <h1>Alwaysnote</h1>
             <ul>
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -38,8 +40,10 @@ function LoginFormPage() {
           <p>Remember everything important.</p>
           <br/>
 
-          <div id="demo-user"></div>
-
+          <div id="demo-user">
+          <button>Demo</button>
+          </div>
+            
           <div className="seperator">
             <div class="or">or</div>
           </div>

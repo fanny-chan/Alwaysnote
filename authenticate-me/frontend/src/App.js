@@ -18,12 +18,10 @@ function App() {
     <>
       {isLoaded && (
         <Switch>
-
           <Route exact path="/" >
           <Navigation isLoaded={isLoaded} />
           <MainContent />
           </Route>
-
           <Route path="/login">
             <LoginFormPage />
           </Route>
