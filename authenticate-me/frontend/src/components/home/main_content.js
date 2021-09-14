@@ -18,7 +18,7 @@ const MainContent =() => {
                 </a>
             </div>
             <div className="pic">
-                <img className="img-container" src="https://evernote.com/c/assets/homepage-repackaging/task_hero_image@2x__en.png?b92f90d51cebbc17"></img>
+                <img className="img-container" src="https://evernote.com/c/assets/homepage-repackaging/task_hero_image@2x__en.png?b92f90d51cebbc17" alt="logo2"></img>
                 <div className="main-side-bar">
                     <div className="word-container">
                         <h4>WORK ANYWHERE</h4>

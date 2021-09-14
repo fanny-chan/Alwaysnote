@@ -18,7 +18,7 @@ function MainNav({ isLoaded }){
         <div className="splash-nav">
             <div className="splash-box">
                 <div className="home-nav-logo">
-                    <img className="alwaysnote-logo" src="https://evernote.com/img/logo/evernote/primary.svg">
+                    <img className="alwaysnote-logo" src="https://evernote.com/img/logo/evernote/primary.svg" alt="elephant">
                     </img>
                   <div className="splash-navbuttons">
                     <NavLink className="home-login-button" to="/login">Log In</NavLink>
@@ -35,10 +35,11 @@ function MainNav({ isLoaded }){
   }
 
   return (
-    
+      <>
       <div className="full-page">
-        {isLoaded && sessionLinks}
+      {isLoaded && sessionLinks}
       </div>
+      </>
     
   );
 }
