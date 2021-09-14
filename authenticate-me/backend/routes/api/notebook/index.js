@@ -31,7 +31,7 @@ notebook_router.post('/', asyncHandler(async(req,res)=> {
 }));
 
 // // Edit a notebook
-notebook_router.patch('/:notebookId', asyncHandler(async(req,res)=> {
+notebook_router.patch('/:id', asyncHandler(async(req,res)=> {
     const notebookId = req.params.id;
     const {title} = req.body;
     const notebook = await Notebook.findByPk(notebookId);

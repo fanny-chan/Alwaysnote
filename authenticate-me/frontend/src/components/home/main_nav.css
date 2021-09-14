@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 div{
     display: block;
@@ -6,29 +5,17 @@ div{
 .root{
     position: relative;
 }
-=======
-div{
-    display: block;
-}
->>>>>>> splash_component
 
 .splash-nav {
     width: 100%;
     padding-bottom: 10px;
     margin-bottom: 20px;
-<<<<<<< HEAD
     background-color:teal;
     box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 10%);
     display:flex;
     justify-content: center;
     height: 85px;
     position: fixed;
-=======
-    background-color: red;
-    box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 10%);
-    display:flex;
-    justify-content: center;
->>>>>>> splash_component
 
 }
 .home-nav-logo {
@@ -48,11 +35,8 @@ div{
     justify-content: space-between;
     align-items: center;
     height: 60px;
-<<<<<<< HEAD
     align-items: center;
     height: 110%;
-=======
->>>>>>> splash_component
 
 }
 .home-login-button {
@@ -61,11 +45,8 @@ div{
     align-items: center;
     right: 10em;
     width: 40%;
-<<<<<<< HEAD
     font-size: 16px;
     text-decoration: none;
-=======
->>>>>>> splash_component
 }
 
 .splash-navbuttons{

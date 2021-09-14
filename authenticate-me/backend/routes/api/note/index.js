@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 const note_router = express.Router();
 
-// Get a note
+// Get all notes
 note_router.get('/', asyncHandler(async(req,res) => {
     const note = await Note.findAll();
     res.json(note);
@@ -17,7 +17,7 @@ note_router.get('/:id(\\d+)/', asyncHandler(async(req,res) => {
     res.json(note);
 }));
 
-// create a notebook
+// create a note
 note_router.post('/', asyncHandler(async(req,res) => {
     const {userId, notebookId, title, content} = req.body;
     const newNote = await Note.create({
@@ -30,7 +30,7 @@ note_router.post('/', asyncHandler(async(req,res) => {
 }));
 
 // Edit a note
-note_router.patch('/:noteId', asyncHandler(async(req,res)=> {
+note_router.patch('/:id', asyncHandler(async(req,res)=> {
     const noteId = req.params.id;
     const {title, content} = req.body;
     const note = await Note.findByPk(noteId);
