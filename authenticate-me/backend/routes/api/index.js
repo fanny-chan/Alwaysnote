@@ -4,6 +4,7 @@ const usersRouter = require('./users.js');
 const notebook_router = require('./notebook');
 const note_router = require('./note');
 
+
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
@@ -13,6 +14,7 @@ router.use('/notes', note_router);
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });
 });
+
 
 module.exports = router;
 

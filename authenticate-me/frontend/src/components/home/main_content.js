@@ -1,29 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import './main_content.css';
-<<<<<<< HEAD
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200&display=swap" rel="stylesheet"></link>
-=======
->>>>>>> splash_component
 
 const MainContent =() => {
     return (
         <div className="main">
             <div className="main-script">
                 <h1>Tame your work, organize your life</h1>
-<<<<<<< HEAD
                 <h5>Remember everything and tackle any project with your notes, tasks, and schedule all in one place</h5>
                 <div className="sign-up-button-div">
                     <button className="button">Sign up for free</button>
                 </div>
-=======
-                <h5>"Remember everything and tackle any project with your notes, tasks, and schedule all in one place</h5>
                 <a className="sign-up-button">
                 </a>
-                    <button>Sign up for free</button>
->>>>>>> splash_component
                 <a className="login-link" href="/login">Already have an account? Log in
                 </a>
+            </div>
             <div className="pic">
                 <img className="img-container" src="https://evernote.com/c/assets/homepage-repackaging/task_hero_image@2x__en.png?b92f90d51cebbc17"></img>
                 <div className="main-side-bar">
@@ -45,8 +38,6 @@ const MainContent =() => {
                     </div>
                 </div>
                 </div>
-
-            </div>
         </div>
     )
 }
