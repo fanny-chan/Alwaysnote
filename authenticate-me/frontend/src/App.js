@@ -4,7 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/home/main_nav";
+import MainContent from "./components/home/main_content";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,9 +16,9 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
           <Route exact path="/" >
@@ -25,6 +26,12 @@ function App() {
           <MainContent />
           </Route>
 >>>>>>> Stashed changes
+=======
+          <Route path="/" exact>
+          <Navigation isLoaded={isLoaded} />
+          <MainContent />
+          </Route>
+>>>>>>> splash_component
           <Route path="/login">
             <LoginFormPage />
           </Route>

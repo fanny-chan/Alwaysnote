@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+<<<<<<< HEAD
     font-family: 'Urbanist',sans-serif;
 }
 
@@ -7,6 +8,9 @@
     position: relative;
 }
 
+=======
+}
+>>>>>>> splash_component
 .pic {
     height: auto;
     max-width: 95%;
@@ -46,13 +50,17 @@ h4 {
 
 h1 {
     font-size: 56px;
+<<<<<<< HEAD
     font-weight: bold;
+=======
+>>>>>>> splash_component
 }
 h5 {
     font-size: 24px;
     font-weight: 400;
     line-height: 150%
 }
+<<<<<<< HEAD
 
 .button {
     background: #00a82d;
@@ -77,3 +85,5 @@ h5 {
 .sign-up-button-div {
     padding-bottom: 20px;
 }
+=======
+>>>>>>> splash_component

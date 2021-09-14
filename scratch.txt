@@ -6,3 +6,7 @@ npx sequelize model:generate --name Notebook --attributes userId:integer,title:s
 
 notes:
 npx sequelize model:generate --name Notes --attributes userId:integer,notebookId:integer,title:string,content:text
+
+<NavLink exact to="/">Home</NavLink>
+        {isLoaded && sessionLinks}
+        <div>HELLO</div>
