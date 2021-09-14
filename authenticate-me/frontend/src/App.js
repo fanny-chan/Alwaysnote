@@ -22,7 +22,6 @@ function App() {
           <Navigation isLoaded={isLoaded} />
           <MainContent />
           </Route>
-
           <Route path="/login">
             <LoginFormPage />
           </Route>
