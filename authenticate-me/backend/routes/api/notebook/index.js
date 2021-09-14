@@ -1,27 +1,28 @@
 const express = require('express')
 const { Notebook } = require('../../../db/models')
 const asyncHandler = require('express-async-handler');
+const {requireAuth} = require('../../../utils/auth')
 
 
 const notebook_router = express.Router();
 
 
 // Get a notebook
-notebook_router.get('/', asyncHandler(async(req,res)=> {
+notebook_router.get('/',requireAuth, asyncHandler(async(req,res)=> {
     const notebook = await Notebook.findAll();
     res.json(notebook);
     // res.send("hello world")
 }));
 
 // Get specific notebook
-notebook_router.get("/:id(\\d+)/", asyncHandler(async(req,res)=> {
+notebook_router.get("/:id(\\d+)/",requireAuth, asyncHandler(async(req,res)=> {
     const id = parseInt(req.params.id, 10);
     const notebook = await Notebook.findByPk(id);
     res.json(notebook);
 }));
 
 // create a notebook
-notebook_router.post('/', asyncHandler(async(req,res)=> {
+notebook_router.post('/',requireAuth, asyncHandler(async(req,res)=> {
     const {userId , title} = req.body;
     const newNotebook = await Notebook.create({
         userId: userId,
@@ -31,7 +32,7 @@ notebook_router.post('/', asyncHandler(async(req,res)=> {
 }));
 
 // // Edit a notebook
-notebook_router.patch('/:id', asyncHandler(async(req,res)=> {
+notebook_router.patch('/:id',requireAuth, asyncHandler(async(req,res)=> {
     const notebookId = req.params.id;
     const {title} = req.body;
     const notebook = await Notebook.findByPk(notebookId);
@@ -42,7 +43,7 @@ notebook_router.patch('/:id', asyncHandler(async(req,res)=> {
 }));
 
 //delete a notebook
-notebook_router.delete("/:id", asyncHandler(async(req,res)=> {
+notebook_router.delete("/:id",requireAuth, asyncHandler(async(req,res)=> {
     const notebookId = req.params.id;
     const notebook = await Notebook.findByPk(notebookId);
     notebook.destroy();

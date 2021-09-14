@@ -2,8 +2,10 @@
 div{
     display: block;
 }
-.root{
+
+#root {
     position: relative;
+
 }
 
 .splash-nav {
@@ -15,7 +17,7 @@ div{
     display:flex;
     justify-content: center;
     height: 85px;
-    position: fixed;
+    /* position: fixed; */
 
 }
 .home-nav-logo {

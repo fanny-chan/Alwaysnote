@@ -12,12 +12,11 @@ const MainContent =() => {
                 <div className="sign-up-button-div">
                     <button className="button">Sign up for free</button>
                 </div>
-                <h5>"Remember everything and tackle any project with your notes, tasks, and schedule all in one place</h5>
                 <a className="sign-up-button">
                 </a>
-                    <button>Sign up for free</button>
                 <a className="login-link" href="/login">Already have an account? Log in
                 </a>
+            </div>
             <div className="pic">
                 <img className="img-container" src="https://evernote.com/c/assets/homepage-repackaging/task_hero_image@2x__en.png?b92f90d51cebbc17"></img>
                 <div className="main-side-bar">
@@ -39,8 +38,6 @@ const MainContent =() => {
                     </div>
                 </div>
                 </div>
-
-            </div>
         </div>
     )
 }
