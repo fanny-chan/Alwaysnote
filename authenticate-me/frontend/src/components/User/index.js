@@ -5,14 +5,15 @@ import { Link } from "react-router-dom";
 import GetNotebookForm from "../NotebookFormPage/GetNotebookForm";
 import UpdateNotebookForm from "../NotebookFormPage/UpdateNotebookForm";
 import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
-
+import UserSideNav from './Side_nav/side_nav'
 
 
 const UserMain =() => {
 
     return (
         <div class="main-container">
-            <div class="side-nav">
+        <UserSideNav />
+            {/* <div class="side-nav">
                 <div className="nav-buttons">
                         <div className="user-profile">
                         <div className="get-notebook">
@@ -37,7 +38,7 @@ const UserMain =() => {
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="all-notes">
                 <div className="all-note-title">
                     Notes
