@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import UserMain from "../User";
+import {Link} from 'react-router-dom'
 
 
 import './main_content.css';
@@ -24,7 +25,7 @@ const MainContent =() => {
                 <h1>Tame your work, organize your life</h1>
                 <h5>Remember everything and tackle any project with your notes, tasks, and schedule all in one place</h5>
                 <div className="sign-up-button-div">
-                    <button className="button">Sign up for free</button>
+                    <Link className="button" to="/signup"><button className="button1">Sign up for free</button></Link>
                 </div>
                 <a className="sign-up-button">
                 </a>
