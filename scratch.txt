@@ -10,3 +10,25 @@ npx sequelize model:generate --name Notes --attributes userId:integer,notebookId
 <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
         <div>HELLO</div>
+
+<div class="side-nav">
+                <div className="side-nav-buttons"></div>
+                    <div className="user-email"></div> 
+                    <div className="notebook-form">
+                        <CreateNotebookForm />
+                    </div> 
+                    <div className="new-notebook"></div>
+                    <div className="notebooks">
+                        <Link className="button-notebook" to="/notebooks"><button className="button1">Notebooks</button>
+                        </Link>
+                    </div>
+                    {/* <div className="get-notebook-form" style={{color:"pink"}}>
+                        <GetNotebookForm />
+                    </div> */}
+                    <div className="update-notebook-form">
+                        <UpdateNotebookForm />
+                    </div>
+                    <div className="notes"></div>
+                        <Link className="button-note" to="/notebooks"><button className="button1">Notes</button>
+                        </Link>         
+            </div>

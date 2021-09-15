@@ -12,22 +12,47 @@ const UserMain =() => {
     return (
         <div class="main-container">
             <div class="side-nav">
-                <div className="user-email">
-                <div className="notebook-form">
-                    <CreateNotebookForm />
-                </div> 
-                <div className="new-notebook"></div>
-                <div className="notebooks"></div>
-                    <Link className="button-notebook" to="/notebooks"><button className="button1">Notebooks</button></Link>
-                {/* <div className="get-notebook-form" style={{color:"pink"}}>
-                    <GetNotebookForm />
-                </div> */}
-                <div className="update-notebook-form">
-                    <UpdateNotebookForm />
+                <div className="nav-buttons">
+                        <div className="user-profile">
+                        <div className="create-notebook">
+                            <CreateNotebookForm />
+                        <div className="create-note">
+                        <div className="menu-buttons">
+                            <div className="Notebooks">
+                                <Link className="main-button" to="/notebooks"><button className="button">Notebooks</button>
+                                </Link>
+                            <div className="Notes">
+                                <Link className="main-button" to="/notes"><button className="button">Notes</button>
+                                </Link>
+                            <div className="Logout">
+                                <Link className="main-button" to="/"><button className="button">Logout</button>
+                                </Link>
+                        </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                 </div>
-            
-                </div>            
             </div>
+            <div className="all-notes">
+                <div className="all-note-title">
+                    Notes
+                </div>
+            </div>
+            <div className="notes">
+                <div className="note-title">
+                    Title of note
+                </div>
+                <div className="note-filler">
+                    Content of note
+                </div>
+
+            </div>
+            
+               
         </div>
     )
 }
