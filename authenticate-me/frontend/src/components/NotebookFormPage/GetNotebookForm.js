@@ -47,7 +47,7 @@ console.log(notebookArr)
 
         </div>
         <div>
-        <ul>
+        {/* <ul>
             {notebooks && notebookArr && notebookArr.map(notebook => (
             <li key={notebook.id}>
                 <Link to={`/notebooks/${notebook.id}`}>
@@ -55,7 +55,7 @@ console.log(notebookArr)
                 </Link>
             </li>
             ))}
-        </ul>
+        </ul> */}
         </div>
         </>
     )
