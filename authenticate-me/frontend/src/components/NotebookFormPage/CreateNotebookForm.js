@@ -24,21 +24,19 @@ export default function CreateNotebookForm() {
         dispatch(thunkCreateNotebook());
     },[dispatch]);
 
-    const handleCancelClick = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
     
     const payload = {
-        title,
-        userId: sessionUser.id
+        userId: sessionUser.id,
+        title   
     }
+
     let createdNotebook = await dispatch(thunkCreateNotebook(payload));
 
     if(createdNotebook) {
         history.pushState(`/notebooks/${createdNotebook.id}`);
     };
-    }
-    const handlecancelClick = (e) => {
-        e.preventDefault();
     }
 
     if(sessionUser) return (

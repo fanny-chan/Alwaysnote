@@ -11,45 +11,33 @@ import { thunkGetNotebooks } from '../../store/notebook';
 
 export default function GetNotebookForm() {
     const dispatch = useDispatch();
-    const history = useHistory();
+  
     const sessionUser = useSelector(state => state.session.user);
     const notebooks = useSelector(state => state.notebook);
-    console.log(notebooks);
 
     const notebookArr = Object.values(notebooks)
+    console.log('-------------')
+    console.log(notebookArr)
     
-    const [title, setTitle] = useState('');
-    const [errors, setErrors] = useState('');
 
     useEffect(() => {
         dispatch(thunkGetNotebooks());
     },[dispatch]);
 
-    const handleCancelClick = (e) => {
-        e.preventDefault();
-    
-    const payload = {
-        title,
-        userId: sessionUser.id
-    }
-    let createdNotebook = dispatch(thunkGetNotebooks(payload));
 
-    if(createdNotebook) {
-        history.pushState(`/notebooks/${createdNotebook.id}`);
-    };
-    }
+    if(!sessionUser) return (
+        <Redirect to="/login" />
+    )
 
-    // if(!sessionUser) return (
-    //     <Redirect to="/login" />
-    // )
-    console.log(notebooks[0])
     return (
         <>
         <div>
           <h1>NoteBooks</h1>
         </div>
         <div>
-            {notebookArr[0]?.userId}
+            {notebookArr.map((notebook)=>{
+                <p>{notebook.title}</p>
+            })}
 
         </div>
         <div>
@@ -58,3 +46,4 @@ export default function GetNotebookForm() {
         </>
     )
 }
+
