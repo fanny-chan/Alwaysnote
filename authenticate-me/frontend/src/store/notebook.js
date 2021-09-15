@@ -108,12 +108,7 @@ const createNotebook = (notebook) => {
     return response;
   };
   
-const initialState = { 
-      notebook: 'travel',
-      userId: '1',
-      title: 'hello',
-    
-   };
+const initialState = {};
 
 const notebookReducer = (state = initialState, action) => {
     let newState;
@@ -131,9 +126,9 @@ const notebookReducer = (state = initialState, action) => {
         newState.notebook = action.payload;
         return newState;
         case LOAD_NOTEBOOKS:
-          newState = Object.assign({},state);
-          newState.notebook = action.payload;
-          return newState;
+          let loadState = {}
+        action.payload.forEach(notebook=> loadState[notebook.id]=notebook)
+        return loadState;
         default:
           return state;
     }

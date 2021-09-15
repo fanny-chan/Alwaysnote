@@ -42,17 +42,18 @@ export default function GetNotebookForm() {
     // if(!sessionUser) return (
     //     <Redirect to="/login" />
     // )
-    
+    console.log(notebooks[0])
     return (
         <>
         <div>
           <h1>NoteBooks</h1>
         </div>
         <div>
-            {notebooks.userId}
+            {notebookArr[0]?.userId}
+
         </div>
         <div>
-            {notebooks.title}
+            {notebookArr[0]?.title}
         </div>
         </>
     )
