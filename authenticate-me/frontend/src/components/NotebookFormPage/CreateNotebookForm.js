@@ -28,10 +28,10 @@ export default function CreateNotebookForm() {
         e.preventDefault();
     
     const payload = {
-        title,
-        userId: sessionUser.id
+        userId: sessionUser.id,
+        title   
     }
-    
+
     let createdNotebook = await dispatch(thunkCreateNotebook(payload));
 
     if(createdNotebook) {
