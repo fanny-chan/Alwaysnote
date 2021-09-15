@@ -2,7 +2,7 @@ import React, { useEffect ,useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import{ useHistory } from 'react-router-dom'
+
 import './NotebookForm.css';
 import { Link } from 'react-router-dom';
 import NoteView from './noteView';
@@ -16,8 +16,15 @@ export default function GetNotebookForm() {
     const sessionUser = useSelector(state => state.session.user);
     const notebooks = useSelector(state => state.notebook);
 
-    const notebookArr = Object.values(notebooks)
-    
+console.log(notebooks)
+
+    let notebookArr;
+
+    if (notebooks) {
+        notebookArr = Object.values(notebooks)
+    }
+console.log(notebookArr)
+   
 
     useEffect(() => {
         dispatch(thunkGetNotebooks());
@@ -27,20 +34,21 @@ export default function GetNotebookForm() {
     if(!sessionUser) return (
         <Redirect to="/login" />
     )
+    
     return (
         <>
         <div>
           <h1>NoteBooks</h1>
         </div>
         <div>
-            {notebookArr && notebookArr.map((notebook) =>(
+            {notebooks && notebookArr && notebookArr.map((notebook) =>(
                 <p>{notebook.title}</p>
             ))}
 
         </div>
         <div>
         <ul>
-            {notebookArr && notebookArr.map(notebook => (
+            {notebooks && notebookArr && notebookArr.map(notebook => (
             <li key={notebook.id}>
                 <Link to={`/notebooks/${notebook.id}`}>
                 {notebook.title}

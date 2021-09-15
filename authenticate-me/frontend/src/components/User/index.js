@@ -1,8 +1,10 @@
 import React from "react";
 import './User.css';
+import { Link } from "react-router-dom";
 import GetNotebookForm from "../NotebookFormPage/GetNotebookForm";
 import UpdateNotebookForm from "../NotebookFormPage/UpdateNotebookForm";
 import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
+
 
 
 const UserMain =() => {
@@ -15,9 +17,11 @@ const UserMain =() => {
                     <CreateNotebookForm />
                 </div> 
                 <div className="new-notebook"></div>
-                <div className="get-notebook-form" style={{color:"pink"}}>
+                <div className="notebooks"></div>
+                    <Link className="button-notebook" to="/notebooks"><button className="button1">Notebooks</button></Link>
+                {/* <div className="get-notebook-form" style={{color:"pink"}}>
                     <GetNotebookForm />
-                </div>
+                </div> */}
                 <div className="update-notebook-form">
                     <UpdateNotebookForm />
                 </div>

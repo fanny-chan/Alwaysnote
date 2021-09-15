@@ -14,9 +14,14 @@ export default function CreateNotebookForm() {
     const sessionUser = useSelector(state => state.session.user);
     const notebooks = useSelector(state => state.notebooks);
 
-    const notebookArr = Object.values(notebooks)
-    
-    console.log(notebookArr)
+    // if(sessionUser) return (
+    //     <Redirect to="/login" />
+    // )
+
+    let notebookArr;
+    if (notebooks) {
+        notebookArr = Object.values(notebooks)
+    }
 
     const [title, SetTitle] = useState('');
 
@@ -25,9 +30,7 @@ export default function CreateNotebookForm() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        
-        
+            
         const payload = {
             userId: sessionUser.id,
             title   
@@ -38,23 +41,20 @@ export default function CreateNotebookForm() {
     let createdNotebook = await dispatch(thunkCreateNotebook(payload));
 
     if(createdNotebook) {
-        history.pushState(`/notebooks/${createdNotebook.id}`);
+        history.push(`/notebooks/${createdNotebook.id}`);
     };
     }
-
-    if(sessionUser) return (
-        <Redirect to="/login" />
-    )
     
     return (
-        <div>
+        <div className="submit-notebook-form">
             <form onSubmit={handleSubmit}>
                 <input
-                title="text"
+                type="text"
+                placeholder="Title"
                 value={title}
                 onChange={updateTitle}
                 /> 
-                <button type="submit">createNotebook</button>
+                <button type="submit">Create Notebook</button>
             </form>
         </div>
     )
