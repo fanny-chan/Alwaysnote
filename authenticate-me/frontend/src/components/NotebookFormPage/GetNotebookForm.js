@@ -40,7 +40,7 @@ console.log(notebookArr)
         <div>
           <h2>NoteBooks</h2>
         </div>
-        <div>
+        <div contentEditable={true}>
             {notebooks && notebookArr && notebookArr.map((notebook) =>(
                 <p>{notebook.title}</p>
             ))}

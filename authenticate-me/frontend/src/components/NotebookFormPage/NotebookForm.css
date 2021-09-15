@@ -1,3 +1,7 @@
 .submit-notebook-form {
     background-color: white;
 }
+
+.notebook-delete {
+    background-color: red;
+}
