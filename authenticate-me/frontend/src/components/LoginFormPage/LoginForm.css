@@ -38,6 +38,7 @@
     /* background-color: pink; */
     justify-content: center;
     flex-direction: column;
+    margin-top: 120%;
 }
 
 /* .seperator {
