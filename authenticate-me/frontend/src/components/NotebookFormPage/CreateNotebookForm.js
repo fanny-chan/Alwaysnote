@@ -3,7 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import{ useHistory } from 'react-router-dom'
-import './NoteBookForm.css';
+import './NotebookForm.css';
 
 
 import { thunkCreateNotebook } from '../../store/notebook';
@@ -18,19 +18,22 @@ export default function CreateNotebookForm() {
     
     console.log(notebookArr)
 
-    const [title, setTitle] = useState('');
+    const [title, SetTitle] = useState('');
 
-    useEffect(() => {
-        dispatch(thunkCreateNotebook());
-    },[dispatch]);
+    const updateTitle = (e) => SetTitle(e.target.value);
 
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
-    const payload = {
-        userId: sessionUser.id,
-        title   
-    }
+        
+        
+        
+        const payload = {
+            userId: sessionUser.id,
+            title   
+        }
+
+        await dispatch(thunkCreateNotebook(payload));
 
     let createdNotebook = await dispatch(thunkCreateNotebook(payload));
 
@@ -45,7 +48,14 @@ export default function CreateNotebookForm() {
     
     return (
         <div>
-            <noteView />
+            <form onSubmit={handleSubmit}>
+                <input
+                title="text"
+                value={title}
+                onChange={updateTitle}
+                /> 
+                <button type="submit">createNotebook</button>
+            </form>
         </div>
     )
 }

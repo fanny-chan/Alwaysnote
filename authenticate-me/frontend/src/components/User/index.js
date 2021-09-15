@@ -2,6 +2,7 @@ import React from "react";
 import './User.css';
 import GetNotebookForm from "../NotebookFormPage/GetNotebookForm";
 import UpdateNotebookForm from "../NotebookFormPage/UpdateNotebookForm";
+import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
 
 
 const UserMain =() => {
@@ -10,6 +11,7 @@ const UserMain =() => {
             <div class="side-nav"></div>
                 <div className="user-email">
                 <div className="notebook-form">
+                    <CreateNotebookForm />
                     <GetNotebookForm />
                     <UpdateNotebookForm />
                 </div>
