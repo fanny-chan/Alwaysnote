@@ -2,9 +2,7 @@ import { csrfFetch } from './csrf';
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
-const CREATE_NOTEBOOK ='/createNotebook';
-const UPDATE_NOTEBOOK = '/updateNotebook';
-const DELETE_NOTEBOOK = '/deleteNotebook';
+
 
 // POJO action 1: set the session user in the session slice of state
 const setUser = (user) => {
@@ -21,28 +19,7 @@ const removeUser = () => {
     type: REMOVE_USER,
   };
 };
-// POJO action: create new notebook
-const createNotebook = (notebook) => {
-  return {
-    type: CREATE_NOTEBOOK,
-    payload: notebook
-  };
-};
-//POJO action: update notebook
-const updateNotebook = (notebook) => {
-  return {
-    type: UPDATE_NOTEBOOK,
-    payload: notebook
-  };
-};
 
-//POJO action: delete notebook
-const deleteNotebook = (notebook) => {
-  return {
-    type: DELETE_NOTEBOOK,
-    payload: notebook
-  };
-};
 
 
 // login thunk action
@@ -93,54 +70,7 @@ export const signup = (user) => async (dispatch) => {
     return response;
   };
 
-  // create new notebook thunk
-  export const thunkCreateNotebook = (notebook) => async (dispatch) => {
-    const { userId, title } = notebook;
-    const response = await csrfFetch("/api/notebooks", {
-      method: "POST",
-      body: JSON.stringify({
-        userId,
-        title,
-      }),
-    });
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(createNotebook(data.notebook));
-        return response;
-    }
-  };
-  // read notebook
-
-  // update notebook
-  export const thunkUpdateNotebook = (notebook) => async (dispatch) => {
-    const { userId, title } = notebook;
-    const response = await csrfFetch("/api/notebooks", {
-      method: "PATCH",
-      body: JSON.stringify({
-        userId,
-        title,
-      }),
-    });
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(updateNotebook(data.notebook));
-        return response;
-    }
-  };
-  // delete a notebook
-  export const thunkDeleteNotebook = (notebook) => async (dispatch) => {
-    const response = await csrfFetch('/api/notebooks/:id', {
-      method: 'DELETE',
-    });
-    dispatch(deleteNotebook());
-    return response;
-  };
-  
-const initialState = { user: null, 
-  notebook: {
-    userId: '',
-    title: '',
-  } };
+  const initialState = { user: null, };
 
 
 const sessionReducer = (state = initialState, action) => {
@@ -154,20 +84,8 @@ const sessionReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.user = null;
       return newState;
-    case CREATE_NOTEBOOK:
-      newState = Object.assign({},state);
-      newState.notebook = action.payload;
-      return newState;
-    case UPDATE_NOTEBOOK:
-      newState = Object.assign({},state);
-      newState.notebook = action.payload;
-      return newState;
-    case DELETE_NOTEBOOK:
-      newState = Object.assign({},state);
-      newState.notebook = action.payload;
-      return newState;
-    default:
-      return state;
+      default:
+        return state;
   }
 };
 

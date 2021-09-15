@@ -45,7 +45,6 @@ function LoginFormPage() {
           </div>
 
           <label>
-            Username or Email
             <input class="email-input" placeholder="Username or Email"
               type="text"
               value={credential}
@@ -54,7 +53,6 @@ function LoginFormPage() {
             />
           </label>
           <label>
-            Password
             <input class="password-input" placeholder="Password"
               type="password"
               value={password}
