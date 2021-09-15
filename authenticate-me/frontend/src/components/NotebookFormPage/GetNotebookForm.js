@@ -17,6 +17,7 @@ export default function GetNotebookForm() {
 
     const notebookArr = Object.values(notebooks)
     console.log('-------------')
+    console.log(notebooks)
     console.log(notebookArr)
     
 
@@ -28,16 +29,15 @@ export default function GetNotebookForm() {
     if(!sessionUser) return (
         <Redirect to="/login" />
     )
-
     return (
         <>
         <div>
           <h1>NoteBooks</h1>
         </div>
         <div>
-            {notebookArr.map((notebook)=>{
+            {notebookArr && notebookArr.map((notebook) =>(
                 <p>{notebook.title}</p>
-            })}
+            ))}
 
         </div>
         <div>
