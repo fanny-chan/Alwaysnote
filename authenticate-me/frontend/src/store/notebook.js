@@ -108,10 +108,11 @@ const createNotebook = (notebook) => {
     return response;
   };
   
-const initialState = {  
-  notebook: '',
-    userId: '',
-    title: '',
+const initialState = { 
+      notebook: 'travel',
+      userId: '1',
+      title: 'hello',
+    
    };
 
 const notebookReducer = (state = initialState, action) => {

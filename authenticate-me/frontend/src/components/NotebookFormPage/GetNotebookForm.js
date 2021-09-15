@@ -3,25 +3,26 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import{ useHistory } from 'react-router-dom'
-import './NoteBookForm.css';
+import './NotebookForm.css';
+import NoteView from './noteView';
 
 
-import { thunkCreateNotebook } from '../../store/notebook';
+import { thunkGetNotebooks } from '../../store/notebook';
 
-export default function CreateNotebookForm() {
+export default function GetNotebookForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const notebooks = useSelector(state => state.notebooks);
+    const notebooks = useSelector(state => state.notebook);
+    console.log(notebooks);
 
     const notebookArr = Object.values(notebooks)
     
-    console.log(notebookArr)
-
     const [title, setTitle] = useState('');
+    const [errors, setErrors] = useState('');
 
     useEffect(() => {
-        dispatch(thunkCreateNotebook());
+        dispatch(thunkGetNotebooks());
     },[dispatch]);
 
     const handleCancelClick = (e) => {
@@ -31,23 +32,28 @@ export default function CreateNotebookForm() {
         title,
         userId: sessionUser.id
     }
-    let createdNotebook = await dispatch(thunkCreateNotebook(payload));
+    let createdNotebook = dispatch(thunkGetNotebooks(payload));
 
     if(createdNotebook) {
         history.pushState(`/notebooks/${createdNotebook.id}`);
     };
     }
-    const handlecancelClick = (e) => {
-        e.preventDefault();
-    }
 
-    if(sessionUser) return (
-        <Redirect to="/login" />
-    )
+    // if(!sessionUser) return (
+    //     <Redirect to="/login" />
+    // )
     
     return (
+        <>
         <div>
-            <noteView />
+          <h1>NoteBooks</h1>
         </div>
+        <div>
+            {notebooks.userId}
+        </div>
+        <div>
+            {notebooks.title}
+        </div>
+        </>
     )
 }

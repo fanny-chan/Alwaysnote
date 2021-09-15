@@ -1,6 +1,6 @@
 import { csrfFetch } from './csrf';
 
-const LOAD_NOTE = 'note/loadNoteb';
+const LOAD_NOTE = 'note/loadNote';
 // const LOAD_NOTEBOOK = 'note/loadNote'
 const CREATE_NOTE ='note/createNote';
 const UPDATE_NOTE = 'note/updateNote';
@@ -17,8 +17,8 @@ const loadNotes = (notes) => {
 // POJO action: create new notebook
 const createNote = (note) => {
     return {
-      type: CREATE_NOTEBOOK,
-      payload: notebook
+      type: CREATE_NOTE,
+      payload: note
     };
   };
 
@@ -45,7 +45,7 @@ const initialState = {
       title: '',
      };
 
-const notebookReducer = (state = initialState, action) => {
+const noteReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case CREATE_NOTE:
