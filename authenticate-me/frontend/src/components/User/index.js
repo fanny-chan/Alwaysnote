@@ -1,6 +1,7 @@
 import React from "react";
 import './User.css';
 import { Link } from "react-router-dom";
+// import ReactQuill from 'react-quill'
 import GetNotebookForm from "../NotebookFormPage/GetNotebookForm";
 import UpdateNotebookForm from "../NotebookFormPage/UpdateNotebookForm";
 import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
@@ -14,7 +15,7 @@ const UserMain =() => {
             <div class="side-nav">
                 <div className="nav-buttons">
                         <div className="user-profile">
-                        <div className="create-notebook">
+                        <div className="get-notebook">
                             <CreateNotebookForm />
                         <div className="create-note">
                         <div className="menu-buttons">
@@ -48,6 +49,7 @@ const UserMain =() => {
                 </div>
                 <div className="note-filler">
                     Content of note
+                    {/* <ReactQuill/> */}
                 </div>
 
             </div>

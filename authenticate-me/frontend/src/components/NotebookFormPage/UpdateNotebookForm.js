@@ -56,7 +56,6 @@ export default function UpdateNotebookForm() {
     return (
         <>
         <div>
-            
             <form onSubmit={handleSubmit}>
                 <input
                 type="text"
