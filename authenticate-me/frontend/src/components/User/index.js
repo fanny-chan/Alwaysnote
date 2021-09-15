@@ -1,7 +1,7 @@
 import React from "react";
 import './User.css';
 import GetNotebookForm from "../NotebookFormPage/GetNotebookForm";
-
+import UpdateNotebookForm from "../NotebookFormPage/UpdateNotebookForm";
 
 
 const UserMain =() => {
@@ -11,6 +11,7 @@ const UserMain =() => {
                 <div className="user-email">
                 <div className="notebook-form">
                     <GetNotebookForm />
+                    <UpdateNotebookForm />
                 </div>
                     
                 </div>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import{ useHistory } from 'react-router-dom'
 import './NotebookForm.css';
+import { Link } from 'react-router-dom';
 import NoteView from './noteView';
 
 
@@ -16,8 +17,6 @@ export default function GetNotebookForm() {
     const notebooks = useSelector(state => state.notebook);
 
     const notebookArr = Object.values(notebooks)
-    console.log('-------------')
-    console.log(notebookArr)
     
 
     useEffect(() => {
@@ -28,20 +27,27 @@ export default function GetNotebookForm() {
     if(!sessionUser) return (
         <Redirect to="/login" />
     )
-
     return (
         <>
         <div>
           <h1>NoteBooks</h1>
         </div>
         <div>
-            {notebookArr.map((notebook)=>{
+            {notebookArr && notebookArr.map((notebook) =>(
                 <p>{notebook.title}</p>
-            })}
+            ))}
 
         </div>
         <div>
-            {notebookArr[0]?.title}
+        <ul>
+            {notebookArr && notebookArr.map(notebook => (
+            <li key={notebook.id}>
+                <Link to={`/notebooks/${notebook.id}`}>
+                {notebook.title}
+                </Link>
+            </li>
+            ))}
+        </ul>
         </div>
         </>
     )
