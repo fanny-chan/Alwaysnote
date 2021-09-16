@@ -32,7 +32,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/notebooks/">
+          <Route path="/notebooks">
             <GetNotebookForm />
           </Route>
           <Route path="/">

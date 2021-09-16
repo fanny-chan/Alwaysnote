@@ -42,11 +42,14 @@ note_router.patch('/:id', requireAuth,asyncHandler(async(req,res)=> {
 }));
 
 // delete a note
-note_router.delete("/:id",requireAuth, asyncHandler(async(req,res)=> {
-    const noteId = req.params.id;
+note_router.delete("/:noteId(\\d+)",requireAuth, asyncHandler(async(req,res)=> {
+    const{ noteId }= req.params;
     const note = await Note.findByPk(noteId);
+    console.log(note)
+    console.log(noteId)
     note.destroy();
     res.send(200);
+
 })
 );
 

@@ -5,3 +5,6 @@
 .notebook-delete {
     background-color: red;
 }
+button {
+    cursor: pointer;
+}

@@ -1,14 +1,14 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { thunkDeleteNotebook } from '../../store/notebook';
-import { useParams ,useHistory} from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 
 export default function DeleteNotebookForm({notebook}) {
 
     const {notebookId} = useParams()
     console.log(notebookId)
     const dispatch = useDispatch();
-    const notebooks = useSelector(state => state.notebooks)
    
     // if(!notebooks) {
     //     return null;

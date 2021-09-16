@@ -85,11 +85,13 @@ const createNote = (note) => {
 
    // delete a note
    export const thunkDeleteNote = (noteId) => async (dispatch) => {
-    const response = await csrfFetch('/api/notes/:id', {
+    const response = await csrfFetch(`/api/notes/${parseInt(noteId)}`, {
       method: 'DELETE',
     });
+    if(response) {
     dispatch(deleteNote(noteId));
     return response;
+    }
   };
 
 
@@ -108,7 +110,7 @@ const noteReducer = (state = initialState, action) => {
           return newState;
         case DELETE_NOTE:
           newState = Object.assign({},state);
-          newState.note = action.payload;
+          delete newState[action.payload];
           return newState;
           case LOAD_NOTE:
             let loadState = {}

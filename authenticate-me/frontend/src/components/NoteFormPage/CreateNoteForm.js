@@ -8,11 +8,11 @@ import './NoteForm.css';
 import { thunkCreateNote } from '../../store/note';
 
 
-export default function CreateNoteForm() {
+export default function CreateNoteForm({notebook}) {
     const sessionUser = useSelector((state) => state.session.user);
+    const notebooks = useSelector((state) => state.notebook)
     const history = useHistory;
     const dispatch = useDispatch();
-
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     // const [errors, setErrors] = useState('');
@@ -34,6 +34,7 @@ export default function CreateNoteForm() {
         // if (errors.length === 0) {
             const payload ={
             userId: sessionUser.id,
+            notebookId: notebooks.id,
             title,
             content
         }
