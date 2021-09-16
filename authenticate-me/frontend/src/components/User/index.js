@@ -18,7 +18,7 @@ const UserMain =() => {
     }
 
     return (
-        <div class="main-container">
+        <div className="main-container">
         <UserSideNav />
             {/* <div class="side-nav">
                 <div className="nav-buttons">

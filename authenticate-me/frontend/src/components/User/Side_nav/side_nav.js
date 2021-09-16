@@ -6,7 +6,7 @@ import CreateNotebookForm from "../../NotebookFormPage/CreateNotebookForm";
 const UserSideNav =() => {
 
     return (
-            <div class="side-nav">
+            <div className="side-nav">
             <div className="nav-buttons">
                 <div className="user-profile">
                 <div className="get-notebook">
