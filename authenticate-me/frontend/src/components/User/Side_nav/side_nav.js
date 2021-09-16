@@ -2,6 +2,7 @@ import React from "react";
 import './side_nav.css';
 import { Link } from "react-router-dom";
 import CreateNotebookForm from "../../NotebookFormPage/CreateNotebookForm";
+import CreateNoteForm from "../../NoteFormPage/CreateNoteForm";
 
 const UserSideNav =() => {
 
@@ -12,6 +13,7 @@ const UserSideNav =() => {
                 <div className="get-notebook">
                     <CreateNotebookForm />
                 <div className="create-note">
+                    <CreateNoteForm />
                 <div className="menu-buttons">
                     <div className="Notebooks">
                         <Link className="main-button" to="/notebooks"><button className="button">Notebooks</button>

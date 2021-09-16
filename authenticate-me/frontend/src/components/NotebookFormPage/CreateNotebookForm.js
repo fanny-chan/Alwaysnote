@@ -1,5 +1,5 @@
 import React, { useEffect ,useState } from 'react';
-import * as sessionActions from '../../store/session';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import{ useHistory } from 'react-router-dom'
@@ -53,7 +53,7 @@ export default function CreateNotebookForm() {
                 placeholder="Title"
                 value={title}
                 onChange={updateTitle}
-                /> 
+                required/> 
                 <button type="submit">Create Notebook</button>
             </form>
         </div>

@@ -60,9 +60,9 @@ const createNotebook = (notebook) => {
       }),
     });
     if (response.ok) {
-        const createNotebook = await response.json();
-        dispatch(createNotebook(createNotebook));
-        return createNotebook;
+        const newNotebook = await response.json();
+        dispatch((createNotebook(newNotebook)));
+        return newNotebook;
     }
   };
   // get notebooks

@@ -8,6 +8,8 @@ import Navigation from "./components/home/main_nav";
 import MainContent from "./components/home/main_content";
 import GetNotebookForm from "./components/NotebookFormPage/GetNotebookForm";
 import GetNoteForm from "./components/NoteFormPage/GetNoteForm";
+import CreateNoteForm from "./components/NoteFormPage/CreateNoteForm";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/notebooks">
+          <Route path="/notebooks/">
             <GetNotebookForm />
           </Route>
           <Route path="/notes">
