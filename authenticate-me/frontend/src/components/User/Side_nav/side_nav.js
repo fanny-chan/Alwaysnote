@@ -3,6 +3,7 @@ import './side_nav.css';
 import { Link } from "react-router-dom";
 import CreateNotebookForm from "../../NotebookFormPage/CreateNotebookForm";
 import CreateNoteForm from "../../NoteFormPage/CreateNoteForm";
+import DeleteNotebookForm from "../../NotebookFormPage/DeleteNotebookForm";
 
 const UserSideNav =() => {
 

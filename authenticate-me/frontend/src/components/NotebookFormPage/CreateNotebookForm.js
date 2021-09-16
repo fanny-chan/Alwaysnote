@@ -31,7 +31,7 @@ export default function CreateNotebookForm() {
             title   
         }
 
-        await dispatch(thunkCreateNotebook(payload));
+        // await dispatch(thunkCreateNotebook(payload));
 
     let createdNotebook = await dispatch(thunkCreateNotebook(payload));
 

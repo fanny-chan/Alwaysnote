@@ -18,6 +18,7 @@ notebook_router.get('/',requireAuth, asyncHandler(async(req,res)=> {
 notebook_router.get("/:id(\\d+)/",requireAuth, asyncHandler(async(req,res)=> {
     const id = parseInt(req.params.id, 10);
     const notebook = await Notebook.findByPk(id);
+    console.log(notebook)
     res.json(notebook);
 }));
 
@@ -43,10 +44,13 @@ notebook_router.patch('/:id',requireAuth, asyncHandler(async(req,res)=> {
 }));
 
 //delete a notebook
-notebook_router.delete("/:id",requireAuth, asyncHandler(async(req,res)=> {
-    const notebookId = req.params.id;
+notebook_router.delete("/:notebookId(\\d+)",requireAuth, asyncHandler(async(req,res)=> {
+    const {notebookId} = req.params;
     const notebook = await Notebook.findByPk(notebookId);
-    notebook.destroy();
+    // console.log("I AM HERE")
+    // console.log(notebook)
+    // console.log(notebookId)
+    await notebook.destroy();
     res.send(200);
 })
 );

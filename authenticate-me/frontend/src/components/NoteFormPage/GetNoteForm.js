@@ -12,7 +12,7 @@ export default function GetNoteForm() {
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
 
-    console.log(notes)
+
     
     let noteArr;
 
@@ -20,7 +20,7 @@ export default function GetNoteForm() {
         noteArr = Object.values(notes)
     }
 
-    console.log(noteArr)
+  
     useEffect(() => {
         dispatch(thunkGetNotes());
     },[dispatch]);

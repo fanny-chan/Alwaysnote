@@ -16,14 +16,14 @@ export default function GetNotebookForm() {
     const sessionUser = useSelector(state => state.session.user);
     const notebooks = useSelector(state => state.notebook);
 
-console.log(notebooks)
+
 
     let notebookArr;
 
     if (notebooks) {
         notebookArr = Object.values(notebooks)
     }
-console.log(notebookArr)
+
    
 
     useEffect(() => {

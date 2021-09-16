@@ -39,10 +39,10 @@ const createNotebook = (notebook) => {
   };
   
   //POJO action: delete notebook
-  const deleteNotebook = (notebook) => {
+  const deleteNotebook = (notebookId) => {
     return {
       type: DELETE_NOTEBOOK,
-      payload: notebook
+      payload: notebookId
     };
   };
 
@@ -112,8 +112,9 @@ const createNotebook = (notebook) => {
         'Content-Type': 'application/json'
       },
     });
+    if(response.ok) {
     await dispatch(deleteNotebook(notebookId));
-    return response;
+    }
   };
   
 const initialState = {};
@@ -131,7 +132,7 @@ const notebookReducer = (state = initialState, action) => {
         return newState;
       case DELETE_NOTEBOOK:
         newState = Object.assign({},state);
-        newState.notebook = action.payload;
+        delete newState[action.payload]
         return newState;
         case LOAD_NOTEBOOKS:
           let loadState = {}
