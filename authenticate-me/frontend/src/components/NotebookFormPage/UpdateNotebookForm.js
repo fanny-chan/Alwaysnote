@@ -56,9 +56,10 @@ export default function UpdateNotebookForm() {
     return (
         <>
         <div>
+            
             <form onSubmit={handleSubmit}>
                 <input
-                type="text"
+                type="submit"
                 placeholder='Title'
                 value={title}
                 onChange={updateTitle}

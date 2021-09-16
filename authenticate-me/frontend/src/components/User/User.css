@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
 }
 div{
@@ -39,7 +39,7 @@ div{
 }
 .nav-buttons {
     margin-top: 20px;
-}
+} */
 
 .all-notes {
     display: flex;

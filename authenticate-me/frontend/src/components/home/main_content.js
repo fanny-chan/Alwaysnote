@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import UserMain from "../User";
 import {Link} from 'react-router-dom'
+import UserSideNav from "../User/Side_nav/side_nav";
 
 
 import './main_content.css';
@@ -15,6 +16,7 @@ const MainContent =() => {
         return(
         <>
         <UserMain />
+        <UserSideNav />
         </>
 
         )
