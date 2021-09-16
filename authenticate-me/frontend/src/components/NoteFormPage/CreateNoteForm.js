@@ -15,42 +15,46 @@ export default function CreateNoteForm() {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const [errors, setErrors] = useState('');
+    // const [errors, setErrors] = useState('');
 
     const updateTitle = (e) => setTitle(e.target.value)
     const updateContent = (e) => setContent(e.target.value)
 
-    const validateNote = () => {
-        let newErrors = [];
-        if(!title.length) newErrors.push('Title field cannot be empty.')
-        if(!content.length) newErrors.push('Content field cannot be empty.')
+    // const validateNote = () => {
+    //     let newErrors = [];
+    //     if(!title.length) newErrors.push('Title field cannot be empty.')
+    //     if(!content.length) newErrors.push('Content field cannot be empty.')
 
-        setErrors(newErrors);
-    }
+    //     setErrors(newErrors);
+    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        validateNote(); 
-        if (errors.length === 0) {
+        // validateNote(); 
+        // if (errors.length === 0) {
             const payload ={
+            userId: sessionUser.id,
             title,
             content
         }
         const newForm = await dispatch(thunkCreateNote(payload));
     
         const { id } = newForm
-        return history.push(`/business/${id}`)
-        }
+        return history.push(`/notes/${id}`)
+        //}
     };
+     // if(sessionUser) return (
+    //     <Redirect to="/login" />
+    // )
 
     return (
         <>
         <div>
-        {
+        {/* {
         errors ?
         errors.map((error) => <li key={error}>{error}</li>)
         : null
-        }
+        } */}
         </div> hello
         <form onSubmit={handleSubmit}>
             <input
