@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/home/main_nav";
 import MainContent from "./components/home/main_content";
 import GetNotebookForm from "./components/NotebookFormPage/GetNotebookForm";
+import GetNoteForm from "./components/NoteFormPage/GetNoteForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/notebooks">
             <GetNotebookForm />
+          </Route>
+          <Route path="/notes">
+            <GetNoteForm />
           </Route>
         </Switch>
       )}

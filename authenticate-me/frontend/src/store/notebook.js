@@ -51,15 +51,18 @@ const createNotebook = (notebook) => {
     const { userId, title } = notebook;
     const response = await csrfFetch("/api/notebooks", {
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         userId,
         title,
       }),
     });
     if (response.ok) {
-        const data = await response.json();
-        dispatch(createNotebook(data.notebook));
-        return response;
+        const createNotebook = await response.json();
+        dispatch(createNotebook(createNotebook));
+        return createNotebook;
     }
   };
   // get notebooks
@@ -69,6 +72,7 @@ const createNotebook = (notebook) => {
     if (response.ok) {
         const notebooks = await response.json();
         dispatch(loadNotebooks(notebooks));
+        return notebooks;
     }
   }
   //  // get notebook
@@ -83,28 +87,32 @@ const createNotebook = (notebook) => {
 
 
   // update notebook
-  export const thunkUpdateNotebook = (notebook) => async (dispatch) => {
-    const { userId, title } = notebook;
-    const response = await csrfFetch("/api/notebooks", {
+  export const thunkUpdateNotebook = (updatedNotebook) => async (dispatch) => {
+    const { id } = updatedNotebook;
+    const response = await csrfFetch(`/api/notebooks/${parseInt(id)}`, {
       method: "PATCH",
-      body: JSON.stringify({
-        userId,
-        title,
-      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedNotebook)
     });
+
     if (response.ok) {
-        const data = await response.json();
-        dispatch(updateNotebook(data.notebook));
-        return response;
+        const updateddata = await response.json();
+        dispatch(updateNotebook(updateddata));
+        return updateddata;
     }
   };
 
   // delete a notebook
   export const thunkDeleteNotebook = (notebookId) => async (dispatch) => {
-    const response = await csrfFetch('/api/notebooks/:id', {
+    const response = await csrfFetch(`/api/notebooks/${parseInt(notebookId)}`, {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
-    dispatch(deleteNotebook(notebookId));
+    await dispatch(deleteNotebook(notebookId));
     return response;
   };
   

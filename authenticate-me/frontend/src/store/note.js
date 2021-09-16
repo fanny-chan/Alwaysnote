@@ -39,7 +39,7 @@ const createNote = (note) => {
   };
 
   // get notes
-  export const thunkGetNote = () => async (dispatch) => {
+  export const thunkGetNotes = () => async (dispatch) => {
     const response = await csrfFetch("/api/notes");
 
     if (response.ok) {
