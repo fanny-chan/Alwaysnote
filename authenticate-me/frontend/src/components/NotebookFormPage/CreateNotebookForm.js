@@ -17,10 +17,6 @@ export default function CreateNotebookForm() {
     //     <Redirect to="/login" />
     // )
 
-    let notebookArr;
-    if (notebooks) {
-        notebookArr = Object.values(notebooks)
-    }
 
     const [title, SetTitle] = useState('');
 
@@ -43,6 +39,9 @@ export default function CreateNotebookForm() {
         history.push(`/notebooks/${createdNotebook.id}`);
     };
     }
+    // if(!notebooks) {
+    //     return null;
+    // }
     
     return (
         <div className="submit-notebook-form">
