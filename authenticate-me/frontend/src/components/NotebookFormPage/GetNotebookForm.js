@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import './NotebookForm.css';
 import { Link } from 'react-router-dom';
 import NoteView from './noteView';
+import DeleteNotebookForm from './DeleteNotebookForm';
 
 
 import { thunkGetNotebooks } from '../../store/notebook';
@@ -42,7 +43,10 @@ export default function GetNotebookForm() {
         </div>
         <div contentEditable={true}>
             {notebooks && notebookArr && notebookArr.map((notebook) =>(
-                <p>{notebook.title}</p>
+                <ul>{notebook.title} 
+                <li> <DeleteNotebookForm key={notebook.id} notebook ={notebook}/> 
+                </li>
+                </ul>
             ))}
 
         </div>

@@ -1,11 +1,12 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { thunkDeleteNotebook } from '../../store/notebook';
-import { useParams } from "react-router-dom";
+import { useParams ,useHistory} from "react-router-dom";
 
-export default function DeleteNotebookForm() {
+export default function DeleteNotebookForm({notebook}) {
+
     const {notebookId} = useParams()
+    console.log(notebookId)
     const dispatch = useDispatch();
     const notebooks = useSelector(state => state.notebooks)
    
@@ -13,15 +14,14 @@ export default function DeleteNotebookForm() {
     //     return null;
     // }
     console.log("notebooooooooks");
-    console.log(notebooks);
+    console.log(notebook);
     console.log(notebookId);
-
 
 
     return (
         
         <div>
-            <button className="notebook-delete" onClick={() => dispatch(thunkDeleteNotebook(notebookId))}>
+            <button className="notebook-delete" onClick={() => dispatch(thunkDeleteNotebook(notebook.id))}>
             DELETE 
             </button>
         </div>

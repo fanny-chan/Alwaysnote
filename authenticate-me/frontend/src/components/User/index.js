@@ -51,7 +51,6 @@ const UserMain =() => {
             <div className="all-notes">
                 <div className="all-note-title">
                     <GetNoteForm />
-                    <DeleteNotebookForm />
                     Notes
                 </div>
             </div>

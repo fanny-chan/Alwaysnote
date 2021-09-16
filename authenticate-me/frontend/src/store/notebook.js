@@ -117,7 +117,8 @@ const createNotebook = (notebook) => {
     }
   };
   
-const initialState = {};
+const initialState = {
+};
 
 const notebookReducer = (state = initialState, action) => {
     let newState;
