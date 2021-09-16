@@ -127,7 +127,7 @@ const notebookReducer = (state = initialState, action) => {
         return newState;
       case UPDATE_NOTEBOOK:
         newState = Object.assign({},state);
-        newState.notebook = action.payload;
+        newState[action.payload.id] = action.payload;
         return newState;
       case DELETE_NOTEBOOK:
         newState = Object.assign({},state);

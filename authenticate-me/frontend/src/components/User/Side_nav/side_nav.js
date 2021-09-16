@@ -19,8 +19,8 @@ const UserSideNav =() => {
                         <Link className="main-button" to="/notebooks"><button className="button">Notebooks</button>
                         </Link>
                     <div className="Notes">
-                        <Link className="main-button" to="/notes"><button className="button">Notes</button>
-                        </Link>
+                        {/* <Link className="main-button" ><button className="button">Notes</button>
+                        </Link> */}
                     <div className="Logout">
                         <Link className="main-button" to="/"><button className="button">Logout</button>
                         </Link>

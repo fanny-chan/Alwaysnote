@@ -9,6 +9,7 @@ import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
 import UserSideNav from './Side_nav/side_nav'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import GetNoteForm from "../NoteFormPage/GetNoteForm";
 
 
 const UserMain =() => {
@@ -48,6 +49,7 @@ const UserMain =() => {
             </div> */}
             <div className="all-notes">
                 <div className="all-note-title">
+                    <GetNoteForm />
                     Notes
                 </div>
             </div>

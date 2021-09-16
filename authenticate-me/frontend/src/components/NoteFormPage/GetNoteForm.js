@@ -36,7 +36,9 @@ export default function GetNoteForm() {
         </div>
         <div contentEditable ={true}>
             {notes && noteArr && noteArr.map((note) => (
-                <p>{note.title}</p>
+                <ul>{note.title}
+                <li>{note.content}</li>
+                </ul>
             ))}
         </div>
         </>

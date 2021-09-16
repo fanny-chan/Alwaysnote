@@ -35,7 +35,7 @@ function App() {
           <Route path="/notebooks/">
             <GetNotebookForm />
           </Route>
-          <Route path="/notes">
+          <Route path="/">
             <GetNoteForm />
           </Route>
         </Switch>
