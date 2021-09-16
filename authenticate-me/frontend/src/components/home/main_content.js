@@ -16,7 +16,7 @@ const MainContent =() => {
         return(
         <>
         <UserMain />
-        <UserSideNav />
+        {/* <UserSideNav /> */}
         </>
 
         )
