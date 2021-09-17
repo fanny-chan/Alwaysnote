@@ -18,6 +18,10 @@ notebook_router.get('/',requireAuth, asyncHandler(async(req,res)=> {
 notebook_router.get("/:id(\\d+)/",requireAuth, asyncHandler(async(req,res)=> {
     const id = parseInt(req.params.id, 10);
     const notebook = await Notebook.findByPk(id);
+<<<<<<< Updated upstream
+=======
+   
+>>>>>>> Stashed changes
     res.json(notebook);
 }));
 
@@ -46,7 +50,12 @@ notebook_router.patch('/:id',requireAuth, asyncHandler(async(req,res)=> {
 notebook_router.delete("/:id",requireAuth, asyncHandler(async(req,res)=> {
     const notebookId = req.params.id;
     const notebook = await Notebook.findByPk(notebookId);
+<<<<<<< Updated upstream
     notebook.destroy();
+=======
+    
+    await notebook.destroy();
+>>>>>>> Stashed changes
     res.send(200);
 })
 );
