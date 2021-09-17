@@ -34,7 +34,7 @@ export default function GetNoteForm({note}) {
         <div>
             <h2 className="notes">Notes</h2>
         </div>
-        <div style={{marginLeft:"2rem"}}className="note-div">
+        <div style={{marginLeft:"4rem"}}className="note-div">
             {notes && Object.values(notes).map((note) => (
                 <div className="note-border">
                 <ul>{note.title}
