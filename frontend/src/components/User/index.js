@@ -2,13 +2,10 @@ import React from "react";
 import './User.css';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import ReactQuill from 'react-quill'
 import GetNotebookForm from "../NotebookFormPage/GetNotebookForm";
 import UpdateNotebookForm from "../NotebookFormPage/UpdateNotebookForm";
 import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
 import UserSideNav from './Side_nav/side_nav'
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import GetNoteForm from "../NoteFormPage/GetNoteForm";
 import DeleteNotebookForm from "../NotebookFormPage/DeleteNotebookForm";
 
