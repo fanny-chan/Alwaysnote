@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import UserMain from "../User";
 import {Link} from 'react-router-dom'
-
+import UserSideNav from "../User/Side_nav/side_nav";
+import GetNoteForm from "../NotebookFormPage/GetNotebookForm";
 
 import './main_content.css';
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200&display=swap" rel="stylesheet"></link>
@@ -15,6 +16,7 @@ const MainContent =() => {
         return(
         <>
         <UserMain />
+        {/* <UserSideNav /> */}
         </>
 
         )

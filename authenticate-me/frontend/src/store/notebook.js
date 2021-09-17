@@ -39,10 +39,10 @@ const createNotebook = (notebook) => {
   };
   
   //POJO action: delete notebook
-  const deleteNotebook = (notebook) => {
+  const deleteNotebook = (notebookId) => {
     return {
       type: DELETE_NOTEBOOK,
-      payload: notebook
+      payload: notebookId
     };
   };
 
@@ -51,15 +51,18 @@ const createNotebook = (notebook) => {
     const { userId, title } = notebook;
     const response = await csrfFetch("/api/notebooks", {
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         userId,
         title,
       }),
     });
     if (response.ok) {
-        const data = await response.json();
-        dispatch(createNotebook(data.notebook));
-        return response;
+        const newNotebook = await response.json();
+        dispatch((createNotebook(newNotebook)));
+        return newNotebook;
     }
   };
   // get notebooks
@@ -69,6 +72,7 @@ const createNotebook = (notebook) => {
     if (response.ok) {
         const notebooks = await response.json();
         dispatch(loadNotebooks(notebooks));
+        return notebooks;
     }
   }
   //  // get notebook
@@ -83,32 +87,38 @@ const createNotebook = (notebook) => {
 
 
   // update notebook
-  export const thunkUpdateNotebook = (notebook) => async (dispatch) => {
-    const { userId, title } = notebook;
-    const response = await csrfFetch("/api/notebooks", {
+  export const thunkUpdateNotebook = (updatedNotebook) => async (dispatch) => {
+    const { id } = updatedNotebook;
+    const response = await csrfFetch(`/api/notebooks/${parseInt(id)}`, {
       method: "PATCH",
-      body: JSON.stringify({
-        userId,
-        title,
-      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedNotebook)
     });
+
     if (response.ok) {
-        const data = await response.json();
-        dispatch(updateNotebook(data.notebook));
-        return response;
+        const updateddata = await response.json();
+        dispatch(updateNotebook(updateddata));
+        return updateddata;
     }
   };
 
   // delete a notebook
   export const thunkDeleteNotebook = (notebookId) => async (dispatch) => {
-    const response = await csrfFetch('/api/notebooks/:id', {
+    const response = await csrfFetch(`/api/notebooks/${parseInt(notebookId)}`, {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
-    dispatch(deleteNotebook(notebookId));
-    return response;
+    if(response.ok) {
+    await dispatch(deleteNotebook(notebookId));
+    }
   };
   
-const initialState = {};
+const initialState = {
+};
 
 const notebookReducer = (state = initialState, action) => {
     let newState;
@@ -116,14 +126,14 @@ const notebookReducer = (state = initialState, action) => {
       case CREATE_NOTEBOOK:
         newState = Object.assign({},state);
         newState.notebook = action.payload;
-        return {...state,newState};
+        return newState;
       case UPDATE_NOTEBOOK:
         newState = Object.assign({},state);
-        newState.notebook = action.payload;
+        newState[action.payload.id] = action.payload;
         return newState;
       case DELETE_NOTEBOOK:
         newState = Object.assign({},state);
-        newState.notebook = action.payload;
+        delete newState[action.payload]
         return newState;
         case LOAD_NOTEBOOKS:
           let loadState = {}

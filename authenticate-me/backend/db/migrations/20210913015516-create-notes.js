@@ -14,12 +14,12 @@ module.exports = {
         references:{model: "Users"}
       },
       notebookId: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references:{model: "Notebooks"}
       },
       title: {
-        allowNull: false,Id,
+        allowNull: false,
         type: Sequelize.STRING
       },
       content: {
