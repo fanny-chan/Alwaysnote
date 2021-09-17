@@ -1,7 +1,7 @@
 import React, { useEffect ,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import CreateModal from './modal';
+import CreateModal from './DeleteNotebookModal';
 import './NotebookForm.css';
 import DeleteNotebookForm from './DeleteNotebookForm';
 import Modal from 'react-modal'

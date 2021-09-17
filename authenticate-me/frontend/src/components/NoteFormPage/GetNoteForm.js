@@ -35,7 +35,7 @@ console.log(noteArr)
         <div>
             <h2>Notes</h2>
         </div>
-        <div contentEditable ={true}>
+        <div style={{marginLeft:"2rem"}}contentEditable ={true}>
             {notes && Object.values(notes).map((note) => (
                 <ul>{note.title}
                 <li>{note.content}</li>

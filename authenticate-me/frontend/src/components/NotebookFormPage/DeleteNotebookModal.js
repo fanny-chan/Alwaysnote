@@ -50,7 +50,7 @@ export default function CreateModal({notebookTitle, id}) {
 
     return (
          <div>
-      <button onClick={openModal}>Open Modal</button>
+      <button onClick={openModal}>Edit</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
