@@ -80,3 +80,15 @@ div{
     padding: 20px;
     height: 80%;
 }
+
+.note-border {
+    flex: 1;
+    overflow-y: auto;
+    height: 120px;
+    padding: 10px 15px 10px 15px;
+    display: flex;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    border: 1px solid #e6e6e6;
+    text-decoration: none;
+}
