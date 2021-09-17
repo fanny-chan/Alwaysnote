@@ -12,13 +12,19 @@ export default function GetNoteForm({note}) {
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
 
+
     
     let noteArr;
 
     if (notes) {
         noteArr = Object.values(notes)
     }
+
+  
     useEffect(() => {
+        dispatch(thunkGetNotes());
+    },[dispatch]);
+
     if(!sessionUser) return (
         <Redirect to="/login" />
     )
@@ -47,4 +53,4 @@ export default function GetNoteForm({note}) {
         </div>
         </>
     )
-            }
+}
