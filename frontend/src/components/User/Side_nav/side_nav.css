@@ -40,3 +40,6 @@ div{
 .nav-buttons {
     margin-top: 20px;
 }
+.list-notebook {
+    list-style: none;
+}

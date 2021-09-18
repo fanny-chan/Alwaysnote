@@ -90,7 +90,7 @@ class RichEditor extends React.Component {
               handleKeyCommand={this.handleKeyCommand}
               keyBindingFn={this.mapKeyToEditorCommand}
               onChange={this.onChange}
-              placeholder="Tell a story..."
+              placeholder="Start writing..."
               ref="editor"
               spellCheck={true}
             />
@@ -151,6 +151,7 @@ class RichEditor extends React.Component {
     {label: 'UL', style: 'unordered-list-item'},
     {label: 'OL', style: 'ordered-list-item'},
     {label: 'Code Block', style: 'code-block'},
+    
   ];
 
   const BlockStyleControls = (props) => {

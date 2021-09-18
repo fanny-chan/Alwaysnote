@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useDispatch ,useSelector} from 'react-redux';
-
+import { csrfFetch } from '../../store/csrf';
 import{ useHistory } from 'react-router-dom'
 import './NoteForm.css';
 
@@ -28,20 +28,37 @@ export default function CreateNoteForm({notebook}) {
     //     setErrors(newErrors);
     // }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = (e) => {
+        // e.preventDefault();
         // validateNote(); 
         // if (errors.length === 0) {
-            const payload ={
-            userId: sessionUser.id,
-            notebookId: notebooks.id,
-            title,
-            content
-        }
-        const newForm = await dispatch(thunkCreateNote(payload));
+        //     const payload ={
+        //     userId: sessionUser.id,
+        //     notebookId: notebooks.id,
+        //     title,
+        //     content
+        // }
+        // const newForm = await dispatch(thunkCreateNote(payload));
+        
+        let id;
+        csrfFetch("/api/notes", {
+            method: "POST",
+            body: JSON.stringify({
+              userId:sessionUser.id,
+              notebookId:notebooks.id,
+              title,
+              content
+            })
+
+        }).then(res => {
+            id = res.data
+        })
     
-        const { id } = newForm
-        return history.push(`/notes/${id}`)
+        // const { id } = newForm
+        if (id) {
+            history.push(`/notes/${id}`)
+        } 
+        
         //}
     };
      // if(sessionUser) return (

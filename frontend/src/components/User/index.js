@@ -11,6 +11,7 @@ import DeleteNotebookForm from "../NotebookFormPage/DeleteNotebookForm";
 import RichEditor from "./editor";
 
 
+
 const UserMain =() => {
     const [body ,setBody] = useState('');
     const handleBody = (e) => {
@@ -47,9 +48,9 @@ const UserMain =() => {
                 </div>
             </div> */}
             <div className="all-notes">
+
                 <div className="all-note-title">
                     <GetNoteForm />
-                    Notes
                 </div>
             </div>
             <div className="notes">
@@ -59,12 +60,7 @@ const UserMain =() => {
                 </div>
                 <div className="note-filler">
                     <RichEditor/>
-                {/* <ReactQuill 
-                placeholder="write something amazing..."
-                modules={toolbarOptions}
-                onChange={handleBody}
-                value={body}/> */}
-                    Content of note
+
                 </div>
 
             </div>
