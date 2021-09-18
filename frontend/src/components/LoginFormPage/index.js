@@ -24,6 +24,8 @@ function LoginFormPage() {
         if (data && data.errors) setErrors(data.errors);
       });
   }
+  
+
 
   return (
   <div id="container"className="wrapper">

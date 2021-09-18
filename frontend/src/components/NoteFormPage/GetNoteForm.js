@@ -12,7 +12,6 @@ export default function GetNoteForm({note}) {
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
 
-
     
     let noteArr;
 
@@ -32,10 +31,12 @@ export default function GetNoteForm({note}) {
     return (
         <>
         <div>
-            <h2>Notes</h2>
+            <h2 className="notes">Notes</h2>
         </div>
-        <div style={{marginLeft:"2rem"}}contentEditable ={true}>
+        <div style={{marginLeft:"4rem"}}className="note-div">
             {notes && Object.values(notes).map((note) => (
+                <div className="note-border">
+                {/* <note props={note} onClick={handleSubmit}/> */}
                 <ul>{note.title}
                 <li>{note.content}</li>
                 <li><DeleteNoteForm 
@@ -49,6 +50,7 @@ export default function GetNoteForm({note}) {
                     />
                 </li>
                 </ul>
+                </div>
             ))}
         </div>
         </>
