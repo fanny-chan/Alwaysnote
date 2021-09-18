@@ -15,6 +15,7 @@ const MainContent =() => {
     if (sessionUser) {
         return(
         <>
+        
         <UserMain />
         {/* <UserSideNav /> */}
         </>
