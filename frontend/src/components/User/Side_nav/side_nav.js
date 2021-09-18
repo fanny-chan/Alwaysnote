@@ -23,7 +23,7 @@ const UserSideNav =() => {
                         {/* <Link className="main-button" ><button className="button">Notes</button>
                         </Link> */}
                     <div className="Logout">
-                        <Link className="main-button" to="/"><button className="button">Logout</button>
+                        <Link className="main-button" to="/login"><button className="button">Logout</button>
                         </Link>
                     </div>
                     </div>
