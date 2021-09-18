@@ -36,6 +36,7 @@ export default function GetNoteForm({note}) {
         <div style={{marginLeft:"4rem"}}className="note-div">
             {notes && Object.values(notes).map((note) => (
                 <div className="note-border">
+                {/* <note props={note} onClick={handleSubmit}/> */}
                 <ul>{note.title}
                 <li>{note.content}</li>
                 <li><DeleteNoteForm 
