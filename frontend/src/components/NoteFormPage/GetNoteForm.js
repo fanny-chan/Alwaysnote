@@ -12,7 +12,6 @@ export default function GetNoteForm({note}) {
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
 
-
     
     let noteArr;
 

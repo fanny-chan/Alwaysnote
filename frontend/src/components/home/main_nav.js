@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './main_nav.css';
-import LoginFormPage from '../LoginFormPage';
 import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import { useState } from "react";

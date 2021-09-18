@@ -44,7 +44,7 @@ div{
 .all-notes {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 98%;
     max-width: 670px;
     min-width: 380px;
     width: 380px;
@@ -63,12 +63,12 @@ div{
 }
 
 .note-title {
-    height: 100px;
+    height: 70px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px;
+    padding: 20px;
     box-sizing: border-box;
     border-bottom: 1px solid #e6e6e6;
     background-color: #f8f8f8;
@@ -76,9 +76,8 @@ div{
 
 .note-filler {
     background-color: #f8f8f8;
-
     padding: 20px;
-    height: 80%;
+    height: 85%;
 }
 
 .note-border {
