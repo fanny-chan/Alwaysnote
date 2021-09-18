@@ -8,6 +8,7 @@ import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
 import UserSideNav from './Side_nav/side_nav'
 import GetNoteForm from "../NoteFormPage/GetNoteForm";
 import DeleteNotebookForm from "../NotebookFormPage/DeleteNotebookForm";
+import RichEditor from "./editor";
 
 
 const UserMain =() => {
@@ -57,6 +58,7 @@ const UserMain =() => {
                     Title of note
                 </div>
                 <div className="note-filler">
+                    <RichEditor/>
                 {/* <ReactQuill 
                 placeholder="write something amazing..."
                 modules={toolbarOptions}
