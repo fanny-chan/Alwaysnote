@@ -6,4 +6,9 @@
     flex-direction: column;
     
 } */
-
+input {
+    background-color:white;
+}
+.create-button {
+    background-color: white;
+}

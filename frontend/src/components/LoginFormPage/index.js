@@ -15,6 +15,19 @@ function LoginFormPage() {
     <Redirect to="/" />
   );
 
+  const demoUser = () => {
+    setErrors([]);
+    return dispatch(
+      sessionActions.login({
+        credential: "Demo-lition",
+        password: "password",
+      })
+    ).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -41,13 +54,15 @@ function LoginFormPage() {
           <br/>
 
           <div id="demo-user"></div>
-
+          <div className="login-demo-user-button">
+                    <button className="login-demo-user-link" type="submit" onClick={demoUser}>Demo User</button>
+          </div>
           <div className="seperator">
             <div class="or">or</div>
           </div>
 
           <label>
-            <input class="email-input" placeholder="Username or Email"
+            <input className="email-input" placeholder="Username or Email"
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
@@ -55,7 +70,7 @@ function LoginFormPage() {
             />
           </label>
           <label>
-            <input class="password-input" placeholder="Password"
+            <input class="password-input"        placeholder="Password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -64,7 +79,13 @@ function LoginFormPage() {
           </label>
           <button className="submit" type="submit">Sign In</button>
         </form>
+      <div className="footer">
+        <div className="redirect">
+        Don't have an account?
+        </div>
+        <a className="redirect-login-link" href="/signup">Sign up</a>
 
+      </div>
       </div>
 
     </div>

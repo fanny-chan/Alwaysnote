@@ -39,7 +39,7 @@ const customStyles = {
     const [content, setContent] = useState('');
 
     const updateTitle = (e) => setTitle(e.target.value);
-    const updateContent = (e) => setContent(e.value.target)
+    const updateContent = (e) => setContent(e.target.value)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -64,19 +64,19 @@ const customStyles = {
           <h2 ref={(_subtitle) => (subtitle = _subtitle)}> Update Title </h2>
           <button onClick={closeModal}>close</button>
           <form onSubmit = {handleSubmit}>
-          <input
+          <input 
               type="text"
               placeholder={noteTitle}
               value={title}
               onChange={updateTitle}
               required/> 
-            <button type="submit">Update Notebook</button>
           <input
             type="text"
             placeholder={noteContent}
             value={content}
             onChange={updateContent}
             required/> 
+            <button type="submit">Update Notebook</button>
           </form>
         </Modal>
       </div>

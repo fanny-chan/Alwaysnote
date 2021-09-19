@@ -29,14 +29,14 @@ const UserSideNav =() => {
             <div className="side-nav">
             <div className="nav-buttons">
                 <div className="user-profile">
-                <div className="get-notebook">
-                    <CreateNotebookForm />
-                <div className="create-note">
-                    <CreateNoteForm />
                 <div className="menu-buttons">
                     <div className="Notebooks">
                         <Link className="main-button" to="/notebooks"><button className="button">Notebooks</button>
                         </Link>
+                <div className="get-notebook"><CreateNotebookForm /></div>
+                        <Link className="main-button" to="/"><button className="button">Notes</button>
+                        </Link>
+                <div className="create-note" to="/"><CreateNoteForm /></div>
                         {notebookArr && notebookArr.length > 0 && notebookArr.map(notebook => (
                         <li className="list-notebook"key={notebook.id}>
                             <Link to={`/notebooks/${notebook.id}`}>
@@ -53,9 +53,6 @@ const UserSideNav =() => {
                     </div>
                     </div>
                     </div>
-
-                </div>
-                </div>
                 </div>
                 </div>
             </div>
