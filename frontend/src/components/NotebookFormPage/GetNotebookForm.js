@@ -5,6 +5,7 @@ import CreateModal from './UpdateNotebookModal';
 import './NotebookForm.css';
 import DeleteNotebookForm from './DeleteNotebookForm';
 import { thunkGetNotebooks } from '../../store/notebook';
+import UserSideNav from '../User/Side_nav/side_nav';
 
 
 
@@ -30,34 +31,44 @@ export default function GetNotebookForm() {
     
     return (
         <>
+        <div className="full-page">
+            <div className="notebook-nav">
+            <UserSideNav />
+            </div>
+            <div className="notebook-index">
+                <div className="notebook-title">
+                    <h3>NoteBooks</h3>
+                </div>
+                <div className="new-notebook">
+                    <button className="new-notebook-button">New Notebook</button>
+                </div>
+                
+                <div className="notebook-render-list">
+                    {notebooks && notebookArr && notebookArr.map((notebook) =>(
+                        <ul>{notebook.title} 
+                        <li> <DeleteNotebookForm key={notebook.id} notebook ={notebook}/> 
+                        </li>
+                        <li>
+                            <CreateModal 
+                            notebookTitle={notebook.title}
+                            id= {notebook.id}
+                            />
+                        </li>
+                        </ul>
+                    ))}
+            </div>
+            </div>
         <div>
-          <h2>NoteBooks</h2>
-        </div>
-        <div>
-            {notebooks && notebookArr && notebookArr.map((notebook) =>(
-                <ul>{notebook.title} 
-                <li> <DeleteNotebookForm key={notebook.id} notebook ={notebook}/> 
+            {/* <ul>
+                {notebooks &&notebookArr && notebookArr.map(notebook => (
+                <li key={notebook.id}>
+                    <Link to={`/notebooks/${notebook.id}`}>
+                    {notebook.title}
+                    </Link>
                 </li>
-                <li>
-                    <CreateModal 
-                    notebookTitle={notebook.title}
-                    id= {notebook.id}
-                    />
-                </li>
-                </ul>
-            ))}
-
-        </div>
-        <div>
-        {/* <ul>
-            {notebooks &&notebookArr && notebookArr.map(notebook => (
-            <li key={notebook.id}>
-                <Link to={`/notebooks/${notebook.id}`}>
-                {notebook.title}
-                </Link>
-            </li>
-            ))}
-        </ul> */}
+                ))}
+            </ul> */}
+            </div>
         </div>
         </>
     )

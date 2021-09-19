@@ -16,7 +16,7 @@ div{
     height: 100vh;
 }
 .side-nav {
-    width: 440px;
+    width: 37rem;
     background: #1a1a1a;
     display: flex;
     flex-direction: column;

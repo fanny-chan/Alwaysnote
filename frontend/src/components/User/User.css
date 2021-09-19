@@ -40,23 +40,29 @@ div{
 .nav-buttons {
     margin-top: 20px;
 } */
-
+.all-note-title {
+    background-color: red;
+    width: 37rem;
+    top: 0;
+    
+}
+h2 {
+    margin-left: 32px;
+}
 .all-notes {
     display: flex;
     flex-direction: column;
     height: 98%;
     max-width: 670px;
-    min-width: 380px;
+    min-width: 330px;
     width: 380px;
     background: #f8f8f8;
     border-right: 1px solid #e6e6e6;
-   
     overflow-y: scroll;
 }
 
 .notes{
     display: flex;
-   
     flex-direction: column;
     height: 100%;
     width: 100%;;
