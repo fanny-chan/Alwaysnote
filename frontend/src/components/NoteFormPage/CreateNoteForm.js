@@ -73,7 +73,7 @@ export default function CreateNoteForm({notebook}) {
         errors.map((error) => <li key={error}>{error}</li>)
         : null
         } */}
-        </div> hello
+        </div> 
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
@@ -88,7 +88,7 @@ export default function CreateNoteForm({notebook}) {
                 value={content}
                 required>
             </input>
-                <button type="submit">Create Note</button>
+                <button className="create-button" type="submit">Create Note</button>
         </form>
         </>
     )
