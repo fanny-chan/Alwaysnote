@@ -9,12 +9,12 @@ import {List,ListItem,ListItemText} from "@material-ui/core"
 import RichEditor from '../User/editor';
 import { Grid } from '@material-ui/core';
 
-export default function GetNoteForm({note}) {
+export default function GetNoteForm({props}) {
     const dispatch = useDispatch();
   
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
-    const [selectedNote, setselectedNote] = useState({})
+   
     
     let noteArr;
 
@@ -30,16 +30,6 @@ export default function GetNoteForm({note}) {
     if(!sessionUser) return (
         <Redirect to="/login" />
     )
-    const handleItemClick =(note) => {
-        if (note) {
-            console.log(note)
-            // let filterValue = e.target.replace('<div>',"")
-            // console.log(filterValue)
-            // let array = filterValue.split('<br>')
-           
-        }
-
-        }
 
     return (
         <>
@@ -56,8 +46,9 @@ export default function GetNoteForm({note}) {
                           key={index}
                           value={note.title + "||" + note.content}
                           onClick={(e) =>{
-                            // console.log(e.target)
-                            handleItemClick(note)
+                            console.log('get note form');
+                            console.log(note);
+                            props.onClick(note)
                           }
                         }
                         >
@@ -79,16 +70,7 @@ export default function GetNoteForm({note}) {
                     />
                 </li>
                 </div>
-                 <div className="notes">
-                <div className="note-title" >
-                   {selectedNote.title}
-                </div>
-                <div className="note-filler">
-                    <RichEditor content={selectedNote.content}/>
-
-                </div>
-
-            </div> 
+            
                 </>
             ))}
             </List>

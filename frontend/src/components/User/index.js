@@ -15,9 +15,20 @@ import RichEditor from "./editor";
 const UserMain =() => {
     const [body ,setBody] = useState('');
     const [title, setTitle] = useState('Title of note');
+    const [selectNote, setSelectNote] = useState({});
+
     const handleBody = (e) => {
         setBody(e)
     }
+
+    const handleItemClick =(note) => {
+        if (note) {
+            console.log("index.js")
+            console.log(note)
+            setSelectNote(note)
+        }
+
+        }
 
     return (
         <div className="main-container">
@@ -51,19 +62,20 @@ const UserMain =() => {
             <div className="all-notes">
 
                 <div className="all-note-title">
-                    <GetNoteForm />
+                    <GetNoteForm onClick={handleItemClick}/>
                 </div>
             </div>
-            {/* <div className="notes">
+            <div className="notes">
                 <div className="note-title">
-                   {title}
+                   {selectNote && selectNote.title ? selectNote.title: 'Title of note'}
                 </div>
                 <div className="note-filler">
-                    <RichEditor/>
+                    <RichEditor selectNote={selectNote}  />
+                    
 
                 </div>
 
-            </div> */}
+            </div>
             
                
         </div>
