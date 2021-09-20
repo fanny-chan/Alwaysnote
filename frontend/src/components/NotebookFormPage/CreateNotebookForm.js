@@ -52,7 +52,7 @@ export default function CreateNotebookForm() {
                 value={title}
                 onChange={updateTitle}
                 required/> 
-                <button type="submit">Create Notebook</button>
+                <button className="create-notebook-button" type="submit">Create Notebook</button>
             </form>
         </div>
     )
