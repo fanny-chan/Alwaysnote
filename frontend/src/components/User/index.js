@@ -80,9 +80,10 @@ const UserMain =() => {
                    {/* {selectNote && selectNote.title ? selectNote.title: 'Title of note'} */}
                    <TextField
                     type="text"
+                    placeholder="Title"
                     style={{ marginBottom: "5%", width: "100%"}}
                     name="title"
-                    value={selectNote && selectNote.title ? selectNote.title: 'Title of note'}
+                    value={selectNote && selectNote.title ? selectNote.title: ''}
                     onChange={(e) => setSelectNote({...selectNote, title: e.target.value})}
                     onBlur={(e) => updateNote(selectNote)}
                     />
@@ -93,9 +94,10 @@ const UserMain =() => {
                     type="text"
                     multiline
                     minRows={20}
+                    placeholder="Start writing..."
                     style={{ marginBottom: "5%", width: '100%'}}
                     name="content"
-                    value={selectNote && selectNote.content ? selectNote.content: 'Start writing...'}
+                    value={selectNote && selectNote.content ? selectNote.content: ''}
                     onChange={(e) => {
                         console.log(e.target.name + " : " + e.target.value);
                         setSelectNote({...selectNote, content: e.target.value})

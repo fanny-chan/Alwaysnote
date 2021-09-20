@@ -88,7 +88,7 @@ export default function CreateNoteForm({notebook}) {
                 value={content}
                 required>
             </input> */}
-                <button className="create-button" type="submit">Create Note</button>
+                <button className="create-note-button" type="submit">Create Note</button>
         </form>
         </>
     )
