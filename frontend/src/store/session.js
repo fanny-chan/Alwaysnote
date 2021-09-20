@@ -4,6 +4,7 @@ const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 
 
+
 // POJO action 1: set the session user in the session slice of state
 const setUser = (user) => {
   return {

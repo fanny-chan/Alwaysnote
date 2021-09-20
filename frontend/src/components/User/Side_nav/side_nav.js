@@ -3,13 +3,16 @@ import './side_nav.css';
 import { Link } from "react-router-dom";
 import CreateNotebookForm from "../../NotebookFormPage/CreateNotebookForm";
 import CreateNoteForm from "../../NoteFormPage/CreateNoteForm";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import{ useEffect} from 'react';
 import { thunkGetNotebooks } from "../../../store/notebook";
+import * as sessionActions from '../../../store/session';
+
 
 const UserSideNav =() => {
     const dispatch = useDispatch();
     const notebooks = useSelector(state => state.notebook);
+
 
     let notebookArr;
 
@@ -20,6 +23,10 @@ const UserSideNav =() => {
     useEffect(() => {
         dispatch(thunkGetNotebooks());
     },[dispatch]);
+
+    const logout =() =>{
+        dispatch(sessionActions.logout());
+    }
 
     return (
             <div className="side-nav">
@@ -47,7 +54,7 @@ const UserSideNav =() => {
                         {/* <Link className="main-button" ><button className="button">Notes</button>
                         </Link> */}
                     <div className="Logout">
-                        <Link className="main-button" to="/login"><button className="button">Logout</button>
+                        <Link className="main-button" to="/login"><button onClick={logout}className="button">Logout</button>
                         </Link>
                     </div>
                     </div>
