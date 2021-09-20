@@ -8,7 +8,7 @@ import Navigation from "./components/home/main_nav";
 import MainContent from "./components/home/main_content";
 import GetNotebookForm from "./components/NotebookFormPage/GetNotebookForm";
 import GetNoteForm from "./components/NoteFormPage/GetNoteForm";
-import CreateNoteForm from "./components/NoteFormPage/CreateNoteForm";
+
 
 
 function App() {

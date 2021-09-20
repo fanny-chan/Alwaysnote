@@ -9,7 +9,6 @@ npx sequelize model:generate --name Notes --attributes userId:integer,notebookId
 
 <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
-        <div>HELLO</div>
 
 <div class="side-nav">
                 <div className="side-nav-buttons"></div>

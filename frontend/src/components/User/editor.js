@@ -6,7 +6,7 @@ import '../../../node_modules/draft-js/dist/Draft.css'
 class RichEditor extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {editorState: EditorState.createEmpty()};
+      this.state = {editorState: EditorState.createEmpty(), selectedNote: props.selectedNote?props.selectedNote:{}};
 
       this.focus = () => this.refs.editor.focus();
       this.onChange = (editorState) => this.setState({editorState});
