@@ -1,8 +1,9 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import { useState } from 'react';
 import * as noteActions from '../../store/note';
 import Modal from 'react-modal'
+
 
 const customStyles = {
     content: {
@@ -17,6 +18,7 @@ const customStyles = {
 
   
   export default function UpdateNoteModal({noteTitle, noteContent, notebookId}) {
+  
 
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -37,19 +39,24 @@ const customStyles = {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const sessionUser = useSelector(state => state.session.user);
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateContent = (e) => setContent(e.target.value)
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let newContent ={
+            userId: sessionUser.id,
             notebookId,
             title,
             content
         };
         dispatch(noteActions.thunkUpdateNote(newContent))
         closeModal();
+        dispatch(noteActions.thunkGetNotes());
+        
     }
       return (
         <div>

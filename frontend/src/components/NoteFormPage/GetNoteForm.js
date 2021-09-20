@@ -1,28 +1,27 @@
-import React, { useEffect ,useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import UpdateNoteModal from './UpdateNoteFormModal'
 import './NoteForm.css';
-import { thunkGetNotes } from '../../store/note';
-import DeleteNoteForm from './DeleteNoteForm';
 
-export default function GetNoteForm({note}) {
-    const dispatch = useDispatch();
+import DeleteNoteForm from './DeleteNoteForm';
+import {List,ListItem,ListItemText} from "@material-ui/core"
+
+
+
+export default function GetNoteForm(props) {
+    // const dispatch = useDispatch();
   
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
-
+   
     
-    let noteArr;
-
-    if (notes) {
-        noteArr = Object.values(notes)
-    }
-
   
-    useEffect(() => {
-        dispatch(thunkGetNotes());
-    },[dispatch]);
+    
+
+    // useEffect(() => {
+    //     dispatch(thunkGetNotes());
+    // },[dispatch]);
 
     if(!sessionUser) return (
         <Redirect to="/login" />
@@ -33,25 +32,42 @@ export default function GetNoteForm({note}) {
         <div>
             <h2 className="notes">Notes</h2>
         </div>
-        <div style={{marginLeft:"4rem"}}className="note-div">
-            {notes && Object.values(notes).map((note) => (
+        <div className="note-div">
+            <List>
+            {notes && Object.values(notes).map((note, index) => (
+                <>
                 <div className="note-border">
+                <ListItem
+                          button
+                          key={index}
+                          value={note && note.title && note.content ? note.title + "||" + note.content:""}
+                          onClick={(e) =>{
+                            props.onClick(e,note)
+                          }
+                        }
+                        >
+                          <ListItemText primary={note && note.title && note.content ? <div>{note.title}<br/>{note.content}</div>: ""}
+                          />
+
+                </ListItem>
+                
                 {/* <note props={note} onClick={handleSubmit}/> */}
-                <ul>{note.title}
-                <li>{note.content}</li>
+                
                 <li><DeleteNoteForm 
-                key={note.id} 
-                note ={note}/>
+                key={note && note.id ? note.id:"note-key"} 
+                note ={note ? note:{}}/>
                 </li>
-                <li><UpdateNoteModal
-                    noteTitle={note.title}
-                    id= {note.id}
-                    noteContent={note.content}
+                {/* <li><UpdateNoteModal
+                    noteTitle={note && note.title ? note.title:""}
+                    id= {note && note.id ? note.id:""}
+                    noteContent={note && note.content ?note.content:""}
                     />
-                </li>
-                </ul>
+                </li> */}
                 </div>
+            
+                </>
             ))}
+            </List>
         </div>
         </>
     )

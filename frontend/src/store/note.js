@@ -68,16 +68,19 @@ const createNote = (note) => {
   };
    // update note
    export const thunkUpdateNote = (note) => async (dispatch) => {
-    const { userId, title } = note;
+    const { notebookId, userId, title,content } = note;
     const response = await csrfFetch("/api/notes", {
-      method: "PATCH",
+      method: "POST",
       body: JSON.stringify({
         userId,
+        notebookId,
         title,
+        content
       }),
     });
     if (response.ok) {
         const data = await response.json();
+        console.log(data)
         dispatch(updateNote(data.note));
         return response;
     }
