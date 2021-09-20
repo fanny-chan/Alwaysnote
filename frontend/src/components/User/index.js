@@ -14,6 +14,7 @@ import RichEditor from "./editor";
 
 const UserMain =() => {
     const [body ,setBody] = useState('');
+    const [title, setTitle] = useState('Title of note');
     const handleBody = (e) => {
         setBody(e)
     }
@@ -53,17 +54,16 @@ const UserMain =() => {
                     <GetNoteForm />
                 </div>
             </div>
-            <div className="notes">
+            {/* <div className="notes">
                 <div className="note-title">
-
-                    Title of note
+                   {title}
                 </div>
                 <div className="note-filler">
                     <RichEditor/>
 
                 </div>
 
-            </div>
+            </div> */}
             
                
         </div>

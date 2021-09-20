@@ -5,13 +5,16 @@ import UpdateNoteModal from './UpdateNoteFormModal'
 import './NoteForm.css';
 import { thunkGetNotes } from '../../store/note';
 import DeleteNoteForm from './DeleteNoteForm';
+import {List,ListItem,ListItemText} from "@material-ui/core"
+import RichEditor from '../User/editor';
+import { Grid } from '@material-ui/core';
 
 export default function GetNoteForm({note}) {
     const dispatch = useDispatch();
   
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
-
+    const [selectedNote, setselectedNote] = useState({})
     
     let noteArr;
 
@@ -27,18 +30,46 @@ export default function GetNoteForm({note}) {
     if(!sessionUser) return (
         <Redirect to="/login" />
     )
+    const handleItemClick =(note) => {
+        if (note) {
+            console.log(note)
+            // let filterValue = e.target.replace('<div>',"")
+            // console.log(filterValue)
+            // let array = filterValue.split('<br>')
+           
+        }
+
+        }
 
     return (
         <>
+        <Grid container spacing={0}>
+        <Grid item xs={12} sm={6}>
         <div>
             <h2 className="notes">Notes</h2>
         </div>
         <div style={{marginLeft:"4rem"}}className="note-div">
-            {notes && Object.values(notes).map((note) => (
+            <List>
+            {notes && Object.values(notes).map((note, index) => (
+                <div>
                 <div className="note-border">
+                <ListItem
+                          button
+                          key={index}
+                          value={note.title + "||" + note.content}
+                          onClick={(e) =>{
+                            // console.log(e.target)
+                            handleItemClick(note)
+                          }
+                        }
+                        >
+                          <ListItemText primary={<div>{note.title}<br/>{note.content}</div>}
+                          />
+
+                </ListItem>
+                
                 {/* <note props={note} onClick={handleSubmit}/> */}
-                <ul>{note.title}
-                <li>{note.content}</li>
+                
                 <li><DeleteNoteForm 
                 key={note.id} 
                 note ={note}/>
@@ -49,9 +80,23 @@ export default function GetNoteForm({note}) {
                     noteContent={note.content}
                     />
                 </li>
-                </ul>
                 </div>
+                </div>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                 <div className="notes">
+                <div className="note-title" >
+                   {selectedNote.title}
+                </div>
+                <div className="note-filler">
+                    <RichEditor content={selectedNote.content}/>
+                </div>
+            </div> 
+            </Grid>
+            </Grid>
+                </>
             ))}
+            </List>
         </div>
         </>
     )
