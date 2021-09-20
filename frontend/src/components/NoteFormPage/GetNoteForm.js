@@ -43,15 +43,13 @@ export default function GetNoteForm({note}) {
 
     return (
         <>
-        <Grid container spacing={0}>
-        <Grid item xs={12} sm={6}>
         <div>
             <h2 className="notes">Notes</h2>
         </div>
         <div style={{marginLeft:"4rem"}}className="note-div">
             <List>
             {notes && Object.values(notes).map((note, index) => (
-                <div>
+                <>
                 <div className="note-border">
                 <ListItem
                           button
@@ -81,19 +79,16 @@ export default function GetNoteForm({note}) {
                     />
                 </li>
                 </div>
-                </div>
-                </Grid>
-                <Grid item xs={12} sm={6}>
                  <div className="notes">
                 <div className="note-title" >
                    {selectedNote.title}
                 </div>
                 <div className="note-filler">
                     <RichEditor content={selectedNote.content}/>
+
                 </div>
+
             </div> 
-            </Grid>
-            </Grid>
                 </>
             ))}
             </List>
