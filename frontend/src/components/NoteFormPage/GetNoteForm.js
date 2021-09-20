@@ -40,13 +40,13 @@ export default function GetNoteForm(props) {
                 <ListItem
                           button
                           key={index}
-                          value={note.title + "||" + note.content}
+                          value={note && note.title && note.content ? note.title + "||" + note.content:""}
                           onClick={(e) =>{
                             props.onClick(e,note)
                           }
                         }
                         >
-                          <ListItemText primary={<div>{note.title}<br/>{note.content}</div>}
+                          <ListItemText primary={note && note.title && note.content ? <div>{note.title}<br/>{note.content}</div>: ""}
                           />
 
                 </ListItem>
@@ -54,15 +54,15 @@ export default function GetNoteForm(props) {
                 {/* <note props={note} onClick={handleSubmit}/> */}
                 
                 <li><DeleteNoteForm 
-                key={note.id} 
-                note ={note}/>
+                key={note && note.id ? note.id:"note-key"} 
+                note ={note ? note:{}}/>
                 </li>
-                <li><UpdateNoteModal
-                    noteTitle={note.title}
-                    id= {note.id}
-                    noteContent={note.content}
+                {/* <li><UpdateNoteModal
+                    noteTitle={note && note.title ? note.title:""}
+                    id= {note && note.id ? note.id:""}
+                    noteContent={note && note.content ?note.content:""}
                     />
-                </li>
+                </li> */}
                 </div>
             
                 </>

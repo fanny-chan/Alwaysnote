@@ -30,11 +30,13 @@ note_router.post('/',requireAuth, asyncHandler(async(req,res) => {
 }));
 
 // Edit a note
-note_router.patch('/:id', requireAuth,asyncHandler(async(req,res)=> {
+note_router.post('/:id', requireAuth,asyncHandler(async(req,res)=> {
     const noteId = req.params.id;
-    const {title, content} = req.body;
+    const {userId, notebookId,title, content} = req.body;
     const note = await Note.findByPk(noteId);
     await note.update({
+        userId: userId,
+        notebookId: notebookId,
         title: title,
         content:content,
     })

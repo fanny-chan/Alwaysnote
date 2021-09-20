@@ -11,6 +11,8 @@ import GetNoteForm from "../NoteFormPage/GetNoteForm";
 import DeleteNotebookForm from "../NotebookFormPage/DeleteNotebookForm";
 import RichEditor from "./editor";
 import { thunkGetNotes } from "../../store/note";
+import { TextField} from "@material-ui/core"
+import * as noteActions from '../../store/note';
 
 
 
@@ -23,12 +25,16 @@ const UserMain =() => {
         dispatch(thunkGetNotes());
     },[dispatch]);
 
+    const updateNote = (note) => {
+        setSelectNote(note)
+        dispatch(noteActions.thunkUpdateNote(note));
+        dispatch(noteActions.thunkGetNotes());
+    }
     
 
     const handleItemClick =(e,note) => {
         if (note) {
-            console.log("index.js")
-            console.log(note)
+           
             setSelectNote(note)
         }
 
@@ -71,16 +77,35 @@ const UserMain =() => {
             </div>
             <div className="notes">
                 <div className="note-title">
-                   {selectNote && selectNote.title ? selectNote.title: 'Title of note'}
+                   {/* {selectNote && selectNote.title ? selectNote.title: 'Title of note'} */}
+                   <TextField
+                    type="text"
+                    style={{ marginBottom: "5%", width: "100%"}}
+                    name="title"
+                    value={selectNote && selectNote.title ? selectNote.title: 'Title of note'}
+                    onChange={(e) => setSelectNote({...selectNote, title: e.target.value})}
+                    onBlur={(e) => updateNote(selectNote)}
+                    />
                 </div>
                 <div className="note-filler">
-                    <RichEditor selectNote={selectNote}  />
+                    {/* <RichEditor selectNote={selectNote}  /> */}
+                    <TextField
+                    type="text"
+                    multiline
+                    minRows={20}
+                    style={{ marginBottom: "5%", width: '100%'}}
+                    name="content"
+                    value={selectNote && selectNote.content ? selectNote.content: 'Start writing...'}
+                    onChange={(e) => {
+                        console.log(e.target.name + " : " + e.target.value);
+                        setSelectNote({...selectNote, content: e.target.value})
+                    }}
+                    onBlur={(e) => updateNote(selectNote)}
+                    />
                     
 
                 </div>
-
             </div>
-            
                
         </div>
     )

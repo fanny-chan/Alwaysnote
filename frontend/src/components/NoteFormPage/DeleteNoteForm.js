@@ -9,7 +9,7 @@ export default function DeleteNoteForm({note}) {
 
     return (
         <div>
-            <button className="note-delete" onClick={() => dispatch(thunkDeleteNote(note.id))}>
+            <button className="note-delete" onClick={() => {if(note && note.id)dispatch(thunkDeleteNote(note.id))}}>
             Delete note
             </button>
         </div>
