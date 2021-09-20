@@ -1,33 +1,35 @@
 import React from "react";
 import './User.css';
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import GetNotebookForm from "../NotebookFormPage/GetNotebookForm";
-import UpdateNotebookForm from "../NotebookFormPage/UpdateNotebookForm";
-import CreateNotebookForm from "../NotebookFormPage/CreateNotebookForm";
+import { useEffect,useState } from "react";
+import { useDispatch } from 'react-redux';
 import UserSideNav from './Side_nav/side_nav'
 import GetNoteForm from "../NoteFormPage/GetNoteForm";
 import DeleteNotebookForm from "../NotebookFormPage/DeleteNotebookForm";
-import RichEditor from "./editor";
+import { thunkGetNotes } from "../../store/note";
+
 
 
 
 const UserMain =() => {
+    const dispatch = useDispatch();
     const [body ,setBody] = useState('');
     const [title, setTitle] = useState('Title of note');
     const [selectNote, setSelectNote] = useState({});
+
+    useEffect(() => {
+        dispatch(thunkGetNotes());
+    },[dispatch]);
 
     const handleBody = (e) => {
         setBody(e)
     }
 
-    const handleItemClick =(note) => {
+    const handleItemClick =(e,note) => {
         if (note) {
             console.log("index.js")
             console.log(note)
             setSelectNote(note)
         }
-
         }
 
     return (

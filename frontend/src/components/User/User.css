@@ -41,7 +41,7 @@ div{
     margin-top: 20px;
 } */
 .all-note-title {
-    background-color: red;
+    background-color:#f8f8f8 ;
     width: 37rem;
     top: 0;
     
@@ -90,6 +90,7 @@ h2 {
     flex: 1;
     overflow-y: auto;
     height: 120px;
+    width: 60em;
     padding: 10px 15px 10px 15px;
     display: flex;
     flex-direction: column;

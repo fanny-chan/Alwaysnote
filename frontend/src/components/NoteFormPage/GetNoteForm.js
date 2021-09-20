@@ -1,16 +1,16 @@
-import React, { useEffect ,useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import UpdateNoteModal from './UpdateNoteFormModal'
 import './NoteForm.css';
-import { thunkGetNotes } from '../../store/note';
+
 import DeleteNoteForm from './DeleteNoteForm';
 import {List,ListItem,ListItemText} from "@material-ui/core"
-import RichEditor from '../User/editor';
-import { Grid } from '@material-ui/core';
 
-export default function GetNoteForm({props}) {
-    const dispatch = useDispatch();
+
+
+export default function GetNoteForm(props) {
+    // const dispatch = useDispatch();
   
     const sessionUser = useSelector(state => state.session.user);
     const notes = useSelector(state => state.note);
@@ -21,11 +21,11 @@ export default function GetNoteForm({props}) {
     if (notes) {
         noteArr = Object.values(notes)
     }
+    
 
-  
-    useEffect(() => {
-        dispatch(thunkGetNotes());
-    },[dispatch]);
+    // useEffect(() => {
+    //     dispatch(thunkGetNotes());
+    // },[dispatch]);
 
     if(!sessionUser) return (
         <Redirect to="/login" />
@@ -36,7 +36,7 @@ export default function GetNoteForm({props}) {
         <div>
             <h2 className="notes">Notes</h2>
         </div>
-        <div style={{marginLeft:"4rem"}}className="note-div">
+        <div className="note-div">
             <List>
             {notes && Object.values(notes).map((note, index) => (
                 <>
@@ -48,7 +48,7 @@ export default function GetNoteForm({props}) {
                           onClick={(e) =>{
                             console.log('get note form');
                             console.log(note);
-                            props.onClick(note)
+                            props.onClick(e,note)
                           }
                         }
                         >
