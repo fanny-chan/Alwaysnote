@@ -16,11 +16,7 @@ export default function GetNoteForm(props) {
     const notes = useSelector(state => state.note);
    
     
-    let noteArr;
-
-    if (notes) {
-        noteArr = Object.values(notes)
-    }
+  
     
 
     // useEffect(() => {
@@ -46,8 +42,6 @@ export default function GetNoteForm(props) {
                           key={index}
                           value={note.title + "||" + note.content}
                           onClick={(e) =>{
-                            console.log('get note form');
-                            console.log(note);
                             props.onClick(e,note)
                           }
                         }

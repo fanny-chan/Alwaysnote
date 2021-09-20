@@ -42,4 +42,5 @@ div{
 }
 .list-notebook {
     list-style: none;
+    margin-left: 10px;
 }

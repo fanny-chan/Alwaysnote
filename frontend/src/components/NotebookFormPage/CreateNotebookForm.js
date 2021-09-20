@@ -11,7 +11,7 @@ export default function CreateNotebookForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const notebooks = useSelector(state => state.notebooks);
+    
 
     // if(sessionUser) return (
     //     <Redirect to="/login" />

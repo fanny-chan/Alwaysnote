@@ -3,10 +3,6 @@ import './side_nav.css';
 import { Link } from "react-router-dom";
 import CreateNotebookForm from "../../NotebookFormPage/CreateNotebookForm";
 import CreateNoteForm from "../../NoteFormPage/CreateNoteForm";
-import {ExpandLess, ExpandMore} from "@material-ui/icons"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
 import { useDispatch, useSelector } from 'react-redux';
 import{ useEffect} from 'react';
 import { thunkGetNotebooks } from "../../../store/notebook";
@@ -30,13 +26,12 @@ const UserSideNav =() => {
             <div className="nav-buttons">
                 <div className="user-profile">
                 <div className="menu-buttons">
-                    <div className="Notebooks">
+                    {/* <div className="Notebooks">
+                        <Link className="main-button" to="/notebooks"><button className="button">Notebooks</button>
+                        </Link> */}
+                <div className="Notebooks">
                         <Link className="main-button" to="/notebooks"><button className="button">Notebooks</button>
                         </Link>
-                <div className="get-notebook"><CreateNotebookForm /></div>
-                        <Link className="main-button" to="/"><button className="button">Notes</button>
-                        </Link>
-                <div className="create-note" to="/"><CreateNoteForm /></div>
                         {notebookArr && notebookArr.length > 0 && notebookArr.map(notebook => (
                         <li className="list-notebook"key={notebook.id}>
                             <Link to={`/notebooks/${notebook.id}`}>
@@ -44,6 +39,10 @@ const UserSideNav =() => {
                             </Link>
                         </li>
                         ))}
+                    <div className="get-notebook"><CreateNotebookForm /></div>
+                        <Link className="main-button" to="/"><button className="button">Notes</button>
+                        </Link>
+                        <div className="create-note" to="/"><CreateNoteForm /></div>
                     <div className="Notes">
                         {/* <Link className="main-button" ><button className="button">Notes</button>
                         </Link> */}

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-import { useDispatch ,useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import { csrfFetch } from '../../store/csrf';
 import{ useHistory } from 'react-router-dom'
 import './NoteForm.css';
 
-import { thunkCreateNote } from '../../store/note';
+
 
 
 export default function CreateNoteForm({notebook}) {
     const sessionUser = useSelector((state) => state.session.user);
     const notebooks = useSelector((state) => state.notebook)
     const history = useHistory;
-    const dispatch = useDispatch();
+   
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     // const [errors, setErrors] = useState('');

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { thunkDeleteNote } from '../../store/note'
-import { useParams } from 'react-router-dom'
+
 
 
 export default function DeleteNoteForm({note}) {
