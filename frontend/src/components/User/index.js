@@ -6,6 +6,7 @@ import UserSideNav from './Side_nav/side_nav'
 import GetNoteForm from "../NoteFormPage/GetNoteForm";
 import DeleteNotebookForm from "../NotebookFormPage/DeleteNotebookForm";
 import { thunkGetNotes } from "../../store/note";
+import RichEditor from "./editor";
 
 
 
